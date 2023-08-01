@@ -1,0 +1,31 @@
+{
+  "name": "BaseSwap Default List",
+  "timestamp": "2022-01-26T11:45:09Z",
+  "version": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://BaseSwap.finance/logo.png",
+  "keywords": ["base", "default"],
+  "tokens": [
+    {
+      "name": "USDT",
+      "symbol": "USDT",
+      "address": "0xd79a8a420c9C01Ed3290dcB75335297Dbf3B3c6F",
+      "chainId": 1771,
+      "decimals": 18,
+      "logoURI": "/images/usdt-assets/usdt.png"
+    },
+    {
+      "name": "Flare",
+      "symbol": "Flare",
+      "address": "0x830126406026C5a55F3c37C74490278d701c1dA7",
+      "chainId": 1771,
+      "decimals": 18,
+      "logoURI": "/images/flare.png"
+    }
+    
+  ]
+}

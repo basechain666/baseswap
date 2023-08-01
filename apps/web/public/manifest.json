@@ -1,0 +1,14 @@
+{
+  "short_name": "BaseSwap",
+  "name": "BaseSwap",
+  "description": "Farm ETH with Base LP Tokens",
+  "homepage_url": "https://BaseSwap.finance",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1FC7D4",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "icons": [
+  ],
+  "iconPath": "/images/cake.svg"
+}
