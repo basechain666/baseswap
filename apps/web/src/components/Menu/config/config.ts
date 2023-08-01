@@ -65,39 +65,39 @@ const config: (
     },
 
 
-    {
-      label: t('Earn'),
-      href: '/earn',
-      icon: EarnIcon,
-      // supportChainIds: [],
-      fillIcon: EarnFillIcon,
-      showItemsOnMobile: false,
-      image: '/images/decorations/pe2.png',
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
-    {
-      label: t('GameFi'),
-      href: '/gamefi',
-      icon: TrophyIcon,
-      // supportChainIds: [],
-      fillIcon: TrophyFillIcon,
-      showItemsOnMobile: false,
-      image: '/images/decorations/pe2.png',
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
-    {
-      label: t('SocialFi'),
-      href: '/socialfi',
-      icon: ShareIcon,
-      // supportChainIds: [],
-      fillIcon: ShareIcon,
-      showItemsOnMobile: false,
-      image: '/images/decorations/pe2.png',
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
+    // {
+    //   label: t('Earn'),
+    //   href: '/earn',
+    //   icon: EarnIcon,
+    //   // supportChainIds: [],
+    //   fillIcon: EarnFillIcon,
+    //   showItemsOnMobile: false,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
+    // {
+    //   label: t('GameFi'),
+    //   href: '/gamefi',
+    //   icon: TrophyIcon,
+    //   // supportChainIds: [],
+    //   fillIcon: TrophyFillIcon,
+    //   showItemsOnMobile: false,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
+    // {
+    //   label: t('SocialFi'),
+    //   href: '/socialfi',
+    //   icon: ShareIcon,
+    //   // supportChainIds: [],
+    //   fillIcon: ShareIcon,
+    //   showItemsOnMobile: false,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

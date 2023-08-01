@@ -224,6 +224,7 @@ export default createReducer(initialState, (builder) =>
     })
     .addCase(updateGasPrice, (state, action) => {
       state.gasPrice = action.payload.gasPrice
+      console.log("updateGasPrice:", state.gasPrice)
     })
     .addCase(addWatchlistToken, (state, { payload: { address } }) => {
       // state.watchlistTokens can be undefined for pre-loaded localstorage user state

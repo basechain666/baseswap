@@ -29,7 +29,7 @@ export function getBlockExploreLink(
   if (!chain) return base.blockExplorers.default.url
   switch (type) {
     case 'transaction': {
-      return `${chain.blockExplorers.default.url}/tx/?path=${data}`
+      return `${chain.blockExplorers.default.url}/tx/${data}`
     }
     case 'token': {
       return `${chain.blockExplorers.default.url}/token/${data}`
@@ -41,7 +41,7 @@ export function getBlockExploreLink(
       return `${chain.blockExplorers.default.url}/block/countdown/${data}`
     }
     default: {
-      return `${chain.blockExplorers.default.url}/address/?path=${data}`
+      return `${chain.blockExplorers.default.url}/address/${data}`
     }
   }
 }

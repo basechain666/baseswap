@@ -68,7 +68,7 @@ import { Chain } from 'wagmi'
 // }
 
 // const bscExplorer = { name: 'BscScan', url: 'https://bscscan.com' }
-const baseExplorer = { name: 'BaseScan', url: 'https://scan.baseWeb3.io/#' }
+const baseExplorer = { name: 'BaseScan', url: 'https://basescan.org/' }
 
 export const base: Chain = {
   id: 8453,

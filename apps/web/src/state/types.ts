@@ -15,10 +15,10 @@ import {
 import { NftToken } from './nftMarket/types'
 
 export enum GAS_PRICE {
-  default = '5',
-  fast = '6',
-  instant = '7',
-  testnet = '10',
+  default = '0.107',
+  fast = '0.108',
+  instant = '0.109',
+  testnet = '0.110',
 }
 
 export const GAS_PRICE_GWEI = {
