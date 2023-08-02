@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
       max-width: 100%;
     }
   }
+  .backgroundWrapper{
+    padding: 10%;
+  }
 `
 
 export default GlobalStyle

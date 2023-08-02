@@ -60,9 +60,8 @@ const BodyWrapper = styled(Box)`
   display: flex;
   max-width: 100vw;
   background-image: url('/images/background.png');
-  background-position: center 40%;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   `;
   
   const Inner = styled.div`

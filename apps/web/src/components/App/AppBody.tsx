@@ -1,20 +1,13 @@
 import styled from 'styled-components'
 import { Card } from '@pancakeswap/uikit'
 
-// const box = div`
-//   border-radius: 24px;
-//   max-width: 436px;
-//   width: 100%;
-//   z-index: 1;
-// `
-// const Box = <div>
-//   <img src="/images/background.png" />
-// </div>
+
 export const BodyWrapper = styled(Card)`
   border-radius: 24px;
   max-width: 436px;
   width: 100%;
   z-index: 1;
+
 `
 
 /**

@@ -8,7 +8,7 @@ export enum ConnectorNames {
   MetaMask = 'metaMask',
   Injected = 'injected',
   WalletConnect = 'walletConnect',
-  BASE = 'bsc',
+  BSC = 'bsc',
   Blocto = 'blocto',
   WalletLink = 'coinbaseWallet',
 }
@@ -49,7 +49,7 @@ const walletsConfig = ({
       title: 'Binance Wallet',
       icon: '/images/wallets/binance.png',
       installed: typeof window !== 'undefined' && Boolean(window.BinanceChain),
-      connectorId: ConnectorNames.BASE,
+      connectorId: ConnectorNames.BSC,
       guide: {
         desktop: 'https://www.bnbchain.org/en/binance-wallet',
       },

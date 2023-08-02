@@ -47,7 +47,7 @@ const combineTokenMapsWithDefault = (lists: ListsState['byUrl'], urls: string[])
 }
 
 const combineTokenMaps = (lists: ListsState['byUrl'], urls: string[]) => {
-  console.log("combineTokenMaps:","lists:",lists, "urls:",urls)
+  console.log("combineTokenMaps lists:",lists, "urls:",urls)
   if (!urls) return EMPTY_LIST
   return (
     urls
@@ -177,13 +177,16 @@ export function useAllLists(): {
 }
 
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
-  return {
+  var result = {
     [ChainId.ETHEREUM]: { ...map1[ChainId.ETHEREUM], ...map2[ChainId.ETHEREUM] },
     [ChainId.RINKEBY]: { ...map1[ChainId.RINKEBY], ...map2[ChainId.RINKEBY] },
     [ChainId.GOERLI]: { ...map1[ChainId.GOERLI], ...map2[ChainId.GOERLI] },
     [ChainId.BASE]: { ...map1[ChainId.BASE], ...map2[ChainId.BASE] },
     [ChainId.BSC_TESTNET]: { ...map1[ChainId.BSC_TESTNET], ...map2[ChainId.BSC_TESTNET] },
   }
+  console.log("combineMaps:" ,result[ChainId.BASE])
+  return result
+
 }
 
 // filter out unsupported lists

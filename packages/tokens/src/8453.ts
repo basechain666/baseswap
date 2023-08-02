@@ -10,7 +10,7 @@ export const baseTokens = {
     18,
     'ETH',
     'ETH',
-    'https://www.baseswap.com/',
+    'https://www.robotswap.com/',
   ),
   usdt: USDT_BASE,
   cake: CAKE_MAINNET

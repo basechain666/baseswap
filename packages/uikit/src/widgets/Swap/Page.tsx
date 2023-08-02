@@ -22,7 +22,7 @@ export const SwapPage = ({
   helpImage,
   ...props
 }: SwapPageProps) => (
-  <AtomBox className={pageVariants({ removePadding, noMinHeight })} {...props}>
+  <AtomBox className={pageVariants({ removePadding, noMinHeight }) } {...props}>
     {children}
     <AtomBox display="flex" flexGrow={1} />
     <AtomBox display={["block", null, null, hideFooterOnDesktop ? "none" : "block"]} width="100%">

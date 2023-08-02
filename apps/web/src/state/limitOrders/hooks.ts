@@ -101,7 +101,7 @@ export const useOrderActionHandlers = (): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency.isToken ? currency.address : currency.isNative ? 'BASE' : '',
+          currencyId: currency.isToken ? currency.address : currency.isNative ? 'ETH' : '',
         }),
       )
     },

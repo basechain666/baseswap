@@ -72,7 +72,7 @@ const baseExplorer = { name: 'BaseScan', url: 'https://basescan.org/' }
 
 export const base: Chain = {
   id: 8453,
-  name: 'Base Chain',
+  name: 'Base',
   network: 'base',
   rpcUrls: {
     public: 'https://smart-intensive-tent.base-mainnet.quiknode.pro/95312447a671f04380b63478cc4d267e7265b4ef/',
@@ -88,8 +88,8 @@ export const base: Chain = {
     decimals: 18,
   },
   multicall: {
-    address: '0x5c957f9744d002c4Ed41Bda8FeC7893E9D5341d4',
-    blockCreated: 2015168,
+    address: '0xEa82B06Da0d83942B0051F0ed7B271eF40de1819',
+    blockCreated: 2098185,
   },
 }
 

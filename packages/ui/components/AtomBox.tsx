@@ -19,6 +19,7 @@ type Props = Atoms &
 
 export const AtomBox = React.forwardRef<HTMLElement, Props>(
   ({ as = 'div', asChild, className, ...props }: Props, ref) => {
+    // console.log("AtomBox:", className)
     const atomProps: Record<string, unknown> = {}
     const nativeProps: Record<string, unknown> = {}
 

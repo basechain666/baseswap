@@ -2,7 +2,7 @@ import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
 export const USDT_BASE = new ERC20Token(
   ChainId.BASE,
-  '0xB399f20Dd4bd642F4c09a912A4C644386a766e26',
+  '0x59f47c76B0d3a911cD093102A27829b28B533761',
   18,
   'USDT',
   'Tether USD',

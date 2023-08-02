@@ -78,7 +78,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
           ))}
           <Box style={{color: 'white', lineHeight: "1.5"}}>BaseDex is a DeFi platform based on Base Chain including Swap, LaunchPad, Staking. BaseDex optimises the trading experience from the node up to build the fastest DEX in the Base Chain.</Box>
           <Box display={["none", null, "block"]}>
-            <img src="/images/logo.png" style={{maxWidth: '60%'}}/>
+            <img src="/images/logo.png" style={{maxWidth: '35%'}}/>
           </Box>
 
         </Flex>

@@ -26,7 +26,6 @@ export function useLocalNetworkChain() {
   const { query } = useRouter()
 
   const chainId = +(sessionChainId || query.chainId || queryChainId)
-
   if (isChainSupported(chainId)) {
     return chainId
   }
