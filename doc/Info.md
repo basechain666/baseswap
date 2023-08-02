@@ -1,6 +1,6 @@
 # Documentation: Info
 
-A brief overview how Info part of BaseSwap website works.
+A brief overview how Info part of BaseDex website works.
 
 ## Code structure
 

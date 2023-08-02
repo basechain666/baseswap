@@ -79,7 +79,7 @@ const Step1 = ({ hasProfile }: { hasProfile: boolean }) => {
           },
         )}
       </Text>
-      <InlineLink external href="https://docs.BaseSwap.finance/products/ifo-initial-farm-offering/icake">
+      <InlineLink external href="https://docs.BaseDex.finance/products/ifo-initial-farm-offering/icake">
         {t('Learn more about iCAKE')}
       </InlineLink>
     </Box>,
@@ -216,7 +216,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
               {t('Activate your Profile')}
             </Heading>
             <Text color="textSubtle" small mb="16px">
-              {t('You’ll need an active BaseSwap Profile to take part in an IFO!')}
+              {t('You’ll need an active BaseDex Profile to take part in an IFO!')}
             </Text>
             {renderAccountStatus()}
           </CardBody>

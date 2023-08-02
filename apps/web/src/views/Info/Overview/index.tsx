@@ -71,7 +71,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   return (
     <Page>
       <Heading scale="lg" mb="16px" id="info-overview-title">
-        {t('BaseSwap Info & Analytics')}
+        {t('BaseDex Info & Analytics')}
       </Heading>
       <ChartCardsContainer>
         <Card>

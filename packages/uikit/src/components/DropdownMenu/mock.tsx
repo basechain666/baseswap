@@ -12,7 +12,7 @@ const ItemsMock: DropdownMenuItems[] = [
   },
   {
     label: "LP Migration",
-    href: "https://v1exchange.BaseSwap.finance/#/migrate",
+    href: "https://v1exchange.BaseDex.finance/#/migrate",
     type: DropdownMenuItemType.EXTERNAL_LINK,
   },
   {

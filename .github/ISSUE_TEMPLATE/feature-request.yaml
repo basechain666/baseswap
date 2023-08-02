@@ -28,8 +28,8 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: How does this feature benefit BaseSwap users and CAKE holders?
-      description: Explain how this feature will be beneficial for the BaseSwap community and ecosystem.
+      label: How does this feature benefit BaseDex users and CAKE holders?
+      description: Explain how this feature will be beneficial for the BaseDex community and ecosystem.
     validations:
       required: true
   - type: textarea

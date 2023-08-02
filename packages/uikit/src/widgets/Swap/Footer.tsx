@@ -42,7 +42,7 @@ const Footer: React.FC<
 > = ({
   variant = "default",
   helpUrl,
-  helpImage = <Image src="https://cdn.BaseSwap.com/help/help.png" alt="Get some help" width={160} height={108} />,
+  helpImage = <Image src="https://cdn.BaseDex.com/help/help.png" alt="Get some help" width={160} height={108} />,
   isEvm = true,
 }) => {
   const { t } = useTranslation();
@@ -54,7 +54,7 @@ const Footer: React.FC<
           <>
             <ButtonMenu variant="subtle" scale="sm" activeIndex={0}>
               <ButtonMenuItem>V2</ButtonMenuItem>
-              <ButtonMenuItem as="a" href="https://v1exchange.BaseSwap.finance/#/">
+              <ButtonMenuItem as="a" href="https://v1exchange.BaseDex.finance/#/">
                 {t("V1 (old)")}
               </ButtonMenuItem>
             </ButtonMenu>

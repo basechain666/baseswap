@@ -80,7 +80,7 @@ const Menu = () => {
                 <Button
                   variant="subtle"
                   as="a"
-                  href="https://docs.BaseSwap.finance/products/prediction"
+                  href="https://docs.BaseDex.finance/products/prediction"
                   target="_blank"
                   rel="noreferrer noopener"
                   width="48px"

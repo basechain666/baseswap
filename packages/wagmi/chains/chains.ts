@@ -72,7 +72,7 @@ const baseExplorer = { name: 'BaseScan', url: 'https://basescan.org/' }
 
 export const base: Chain = {
   id: 8453,
-  name: 'BaseWeb3 Chain',
+  name: 'Base Chain',
   network: 'base',
   rpcUrls: {
     public: 'https://smart-intensive-tent.base-mainnet.quiknode.pro/95312447a671f04380b63478cc4d267e7265b4ef/',

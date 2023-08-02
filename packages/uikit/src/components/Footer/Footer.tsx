@@ -76,9 +76,11 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               ))}
             </StyledList>
           ))}
+          <Box style={{color: 'white', lineHeight: "1.5"}}>BaseDex is a DeFi platform based on Base Chain including Swap, LaunchPad, Staking. BaseDex optimises the trading experience from the node up to build the fastest DEX in the Base Chain.</Box>
           <Box display={["none", null, "block"]}>
             <img src="/images/logo.png" style={{maxWidth: '60%'}}/>
           </Box>
+
         </Flex>
         {/* <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} /> */}
         {/* <StyledToolsContainer
@@ -106,7 +108,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
             <Button
               data-theme={isDark ? "dark" : "light"}
               as="a"
-              href="https://BaseSwap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
+              href="https://BaseDex.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
               target="_blank"
               scale="sm"
               endIcon={<ArrowForwardIcon color="backgroundAlt" />}

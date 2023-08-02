@@ -80,7 +80,7 @@ export const TokenImages: React.FC<React.PropsWithChildren> = () => {
   return (
     <Flex flexWrap="wrap">
       {tokens.map((token) => {
-        const src = `https://BaseSwap.finance/images/tokens/${token.address[56]}.png`;
+        const src = `https://BaseDex.finance/images/tokens/${token.address[56]}.png`;
 
         return (
           <StyledBox key={token.symbol} p="16px">
@@ -101,8 +101,8 @@ export const TokenPairImages: React.FC<React.PropsWithChildren> = () => {
     <Flex flexWrap="wrap">
       {tokens.map((token) => {
         const randomTokenIndex = random(0, tokens.length - 1);
-        const primarySrc = `https://BaseSwap.finance/images/tokens/${token.address[56]}.png`;
-        const secondarySrc = `https://BaseSwap.finance/images/tokens/${tokens[randomTokenIndex].address[56]}.png`;
+        const primarySrc = `https://BaseDex.finance/images/tokens/${token.address[56]}.png`;
+        const secondarySrc = `https://BaseDex.finance/images/tokens/${tokens[randomTokenIndex].address[56]}.png`;
 
         return (
           <StyledBox key={token.symbol} p="16px">

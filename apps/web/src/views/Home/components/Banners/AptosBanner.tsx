@@ -61,7 +61,7 @@ const AptosBanner = () => {
           <Button
             minHeight="48px"
             onClick={() =>
-              window?.open('https://docs.BaseSwap.finance/aptos-deployment', '_blank', 'noopener noreferrer')
+              window?.open('https://docs.BaseDex.finance/aptos-deployment', '_blank', 'noopener noreferrer')
             }
           >
             <Text color="invertedContrast" bold fontSize="16px" mr="4px">

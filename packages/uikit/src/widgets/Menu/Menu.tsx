@@ -59,10 +59,10 @@ const BodyWrapper = styled(Box)`
   position: relative;
   display: flex;
   max-width: 100vw;
-  background-image: url('/images/background.jpg');
-  background-position: top, center;
+  background-image: url('/images/background.png');
+  background-position: center 40%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   `;
   
   const Inner = styled.div`

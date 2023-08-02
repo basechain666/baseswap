@@ -39,4 +39,4 @@ This project is built with Typescript and export all the relevant types.
 
 ## How to use the UIkit
 
-If you want to use components from the UIkit, check the [Storybook documentation](https://BaseSwap.github.io/base-uikit/)
+If you want to use components from the UIkit, check the [Storybook documentation](https://BaseDex.github.io/base-uikit/)

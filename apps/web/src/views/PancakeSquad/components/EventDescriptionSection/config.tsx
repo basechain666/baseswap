@@ -35,7 +35,7 @@ const eventDescriptionConfigBuilder = ({ t }: EventDescriptionType) => ({
     },
   ],
   primaryButton: {
-    to: 'https://docs.BaseSwap.finance/',
+    to: 'https://docs.BaseDex.finance/',
     text: t('View Documentation'),
     external: true,
     isDisplayed: false,

@@ -57,7 +57,7 @@ const config = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'static-nft.BaseSwap.com',
+        hostname: 'static-nft.BaseDex.com',
       },
     ],
   },
@@ -137,7 +137,7 @@ const config = {
       },
       {
         source: '/staking',
-        destination: '/pools',
+        destination: '/staking',
         permanent: true,
       },
       {

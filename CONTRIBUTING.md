@@ -1,7 +1,7 @@
 # Contributing to the Base ecosystem 🥞
 
 Thanks for taking the time to contribute !
-You can start by reading our [Contribution guidelines](https://docs.BaseSwap.finance/code/contributing) first.
+You can start by reading our [Contribution guidelines](https://docs.BaseDex.finance/code/contributing) first.
 
 ## Setup
 

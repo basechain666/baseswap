@@ -18,7 +18,7 @@ const NotFound = ({ statusCode = 404 }: { statusCode?: number }) => {
   return (
     <Page>
       <StyledNotFound>
-        <Heading scale="xxl">Coming soon</Heading>
+        {/* <Heading scale="xxl">Coming soon</Heading> */}
         <Link href="/" passHref>
           <Button as="a" scale="sm">
             {t('Back Home')}

@@ -59,10 +59,10 @@ const NetworkSelect = ({ switchNetwork, chainId }) => {
         style={{ justifyContent: 'flex-start' }}
         as="a"
         target="_blank"
-        href="https://aptos.BaseSwap.finance/swap"
+        href="https://aptos.BaseDex.finance/swap"
       >
         <Image
-          src="https://aptos.BaseSwap.finance/images/apt.png"
+          src="https://aptos.BaseDex.finance/images/apt.png"
           width={24}
           height={24}
           unoptimized
@@ -95,7 +95,7 @@ const WrongNetworkSelect = ({ switchNetwork, chainId }) => {
   const localChainId = useLocalNetworkChain() || ChainId.BASE
   const [, setSessionChainId] = useSessionChainId()
 
-  const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'BaseWeb3 Chain'
+  const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'Base Chain'
 
   const [ref1, isHover] = useHover<HTMLButtonElement>()
 

@@ -72,7 +72,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'BaseSwap',
+    appName: 'BaseDex',
     appLogoUrl: 'https://baseswap.com/logo.png',
   },
 })
