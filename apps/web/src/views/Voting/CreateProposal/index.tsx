@@ -137,7 +137,7 @@ const CreateProposal = () => {
     updateValue(key, value)
   }
 
-  const options = useMemo(() => {
+  const options:any = useMemo(() => {
     return {
       hideIcons:
         account && ADMINS.includes(account.toLowerCase())

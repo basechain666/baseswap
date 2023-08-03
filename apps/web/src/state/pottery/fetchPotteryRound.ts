@@ -3,7 +3,7 @@ import { GRAPH_API_POTTERY } from 'config/constants/endpoints'
 
 export const fetchPotteryFinishedRound = async (potteryRoundId: number) => {
   try {
-    const response = await request(
+    const response:any = await request(
       GRAPH_API_POTTERY,
       gql`
         query getPotteryVaultRounds($roundId: Int!) {

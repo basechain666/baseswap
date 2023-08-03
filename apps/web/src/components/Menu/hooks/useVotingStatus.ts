@@ -5,7 +5,7 @@ import { SNAPSHOT_API } from 'config/constants/endpoints'
 import { PANCAKE_SPACE, ADMINS } from 'views/Voting/config'
 
 export const getActiveCoreProposal = async (): Promise<string[]> => {
-  const response = await request(
+  const response: any = await request(
     SNAPSHOT_API,
     gql`
       query getProposals($first: Int!, $skip: Int!, $state: String!, $admins: [String]!) {

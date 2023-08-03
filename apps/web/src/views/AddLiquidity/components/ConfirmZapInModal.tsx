@@ -260,7 +260,7 @@ const ConfirmZapInModal: React.FC<React.PropsWithChildren<InjectedModalProps & C
         <ConfirmationModalContent topContent={modalHeader} bottomContent={modalBottom} />
       ),
     [liquidityErrorMessage, rebalancing, zapMode, toggleZapMode, onDismiss, modalHeader, modalBottom],
-  )
+  ) as any
 
   return (
     <TransactionConfirmationModal

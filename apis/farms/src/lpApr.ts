@@ -172,7 +172,7 @@ const getAprsForStableFarm = async (stableFarm: any): Promise<BigNumber> => {
         }
       `,
       { stableSwapAddress, blockDayAgo },
-    )
+    ) as any
 
     const virtualPrice = virtualPriceAtLatestBlock[0]?.virtualPrice
     const preVirtualPrice = virtualPriceOneDayAgo[0]?.virtualPrice

@@ -157,7 +157,7 @@ const ConfirmRemoveLiquidityModal: React.FC<
         <ConfirmationModalContent topContent={modalHeader} bottomContent={modalBottom} />
       ),
     [liquidityErrorMessage, isZap, toggleZapMode, onDismiss, modalHeader, modalBottom],
-  )
+  ) as any
 
   return (
     <TransactionConfirmationModal

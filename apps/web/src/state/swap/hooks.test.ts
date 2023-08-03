@@ -1,8 +1,8 @@
 /* eslint-disable no-var */
 /* eslint-disable vars-on-top */
+import { parse } from 'querystring'
 import { renderHook } from '@testing-library/react-hooks'
 import { DEFAULT_OUTPUT_CURRENCY } from 'config/constants/exchange'
-import { parse } from 'querystring'
 import { useCurrency } from 'hooks/Tokens'
 import { createReduxWrapper } from 'testUtils'
 import { Field } from './actions'

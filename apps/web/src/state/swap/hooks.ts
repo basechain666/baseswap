@@ -1,6 +1,6 @@
+import { ParsedUrlQuery } from 'querystring'
 import { useAccount } from 'wagmi'
 import { Currency, CurrencyAmount, Trade, TradeType } from '@pancakeswap/sdk'
-import { ParsedUrlQuery } from 'querystring'
 import { useEffect, useMemo, useState } from 'react'
 import { DEFAULT_INPUT_CURRENCY, DEFAULT_OUTPUT_CURRENCY } from 'config/constants/exchange'
 import { multicallv2 } from 'utils/multicall'

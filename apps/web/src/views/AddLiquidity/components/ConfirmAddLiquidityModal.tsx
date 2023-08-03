@@ -100,7 +100,7 @@ const ConfirmAddLiquidityModal: React.FC<
         <ConfirmationModalContent topContent={modalHeader} bottomContent={modalBottom} />
       ),
     [onDismiss, modalBottom, modalHeader, liquidityErrorMessage],
-  )
+  ) as any
 
   return (
     <TransactionConfirmationModal

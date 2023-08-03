@@ -91,7 +91,7 @@ export const getTotalWon = async (): Promise<{ totalWonBNB: number; totalWonCAKE
           }
         }
       `,
-    ),
+    ) as any,
     request(
       GRAPH_API_PREDICTION_CAKE,
       gql`
@@ -120,7 +120,7 @@ export const getBetHistory = async (
   api: string,
   tokenSymbol: string,
 ): Promise<Array<BetResponseBNB | BetResponseCAKE>> => {
-  const response = await request(
+  const response:any = await request(
     api,
     gql`
       query getBetHistory($first: Int!, $skip: Int!, $where: Bet_filter) {
@@ -184,7 +184,7 @@ export const getPredictionUsers = async (
   tokenSymbol: string,
 ): Promise<UserResponse<BetResponse>[]> => {
   const { first, skip, where, orderBy, orderDir } = { ...defaultPredictionUserOptions, ...options }
-  const response = await request(
+  const response:any = await request(
     api,
     gql`
       query getUsers($first: Int!, $skip: Int!, $where: User_filter, $orderBy: User_orderBy, $orderDir: OrderDirection) {
@@ -203,7 +203,7 @@ export const getPredictionUser = async (
   api: string,
   tokenSymbol: string,
 ): Promise<UserResponse<BetResponse>> => {
-  const response = await request(
+  const response:any = await request(
     api,
     gql`
       query getUser($id: ID!) {

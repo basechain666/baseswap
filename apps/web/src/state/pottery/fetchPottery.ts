@@ -98,7 +98,7 @@ export const fetchTotalLockedValue = async (potteryVaultAddress: string) => {
 
 export const fetchLatestRoundId = async () => {
   try {
-    const response = await request(
+    const response:any = await request(
       GRAPH_API_POTTERY,
       gql`
         query getLatestRoundId {

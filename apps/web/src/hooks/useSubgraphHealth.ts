@@ -35,7 +35,7 @@ const useSubgraphHealth = (subgraphName: string) => {
     (currentBlockNumber) => {
       const getSubgraphHealth = async () => {
         try {
-          const [{ indexingStatusForCurrentVersion }, currentBlock] = await Promise.all([
+          const [{indexingStatusForCurrentVersion} , currentBlock] = await Promise.all([
             request(
               GRAPH_HEALTH,
               gql`
@@ -53,7 +53,7 @@ const useSubgraphHealth = (subgraphName: string) => {
               }
             }
           `,
-            ),
+            ) as any,
             currentBlockNumber ? Promise.resolve(currentBlockNumber) : bscRpcProvider.getBlockNumber(),
           ])
 
