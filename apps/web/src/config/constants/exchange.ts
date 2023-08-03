@@ -18,7 +18,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.GOERLI]: [WNATIVE[ChainId.RINKEBY], USDC[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.BASE]: [
     baseTokens.weth,
-    baseTokens.usdt,
+    baseTokens.robot,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
@@ -38,7 +38,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY], WNATIVE[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
-  [ChainId.BASE]: [baseTokens.usdt],
+  [ChainId.BASE]: [baseTokens.robot],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
 
@@ -47,7 +47,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY], WNATIVE[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
-  [ChainId.BASE]: [baseTokens.usdt, baseTokens.eth],
+  [ChainId.BASE]: [baseTokens.robot, baseTokens.eth],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
 
@@ -58,7 +58,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM]],
   ],
   [ChainId.BASE]: [
-    [baseTokens.usdt, baseTokens.eth],
+    [baseTokens.robot, baseTokens.eth],
   ],
 }
 
@@ -96,6 +96,6 @@ export const DEFAULT_OUTPUT_CURRENCY = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE
 export const GELATO_HANDLER = 'pancakeswap'
 export const GENERIC_GAS_LIMIT_ORDER_EXECUTION = BigNumber.from(500000)
 
-export const LIMIT_ORDERS_DOCS_URL = 'https://docs.baseswap.finance/products/pancakeswap-exchange/limit-orders'
+export const LIMIT_ORDERS_DOCS_URL = 'https://docs.robotswap.finance/products/pancakeswap-exchange/limit-orders'
 
 export const EXCHANGE_PAGE_PATHS = ['/swap', '/limit-orders', 'liquidity', '/add', '/find', '/remove']

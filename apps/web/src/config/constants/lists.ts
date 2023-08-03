@@ -1,6 +1,6 @@
 const PANCAKE_EXTENDED = 'config/constants/tokenLists/base-default.tokenlist.json'
-const COINGECKO = 'https://tokens.baseswap.finance/coingecko.json'
-const CMC = 'https://tokens.baseswap.finance/cmc.json'
+const COINGECKO = 'https://tokens.robotswap.finance/coingecko.json'
+const CMC = 'https://tokens.robotswap.finance/cmc.json'
 
 // List of official tokens list
 export const OFFICIAL_LISTS = [PANCAKE_EXTENDED]

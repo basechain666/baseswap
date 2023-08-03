@@ -1,5 +1,5 @@
 import { ChainId, WETH, ERC20Token } from '@pancakeswap/sdk'
-import { CAKE_MAINNET, USDT_BASE } from './common'
+import { CAKE_MAINNET, ROBOT_BASE } from './common'
 
 export const baseTokens = {
   weth: WETH[ChainId.BASE],
@@ -12,6 +12,6 @@ export const baseTokens = {
     'ETH',
     'https://www.robotswap.com/',
   ),
-  usdt: USDT_BASE,
+  robot: ROBOT_BASE,
   cake: CAKE_MAINNET
 }

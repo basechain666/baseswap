@@ -11,20 +11,12 @@
   "keywords": ["base", "default"],
   "tokens": [
     {
-      "name": "USDT",
-      "symbol": "USDT",
-      "address": "0xB399f20Dd4bd642F4c09a912A4C644386a766e26",
+      "name": "ROBOT",
+      "symbol": "ROBOT",
+      "address": "0x74bAB5Fbb144708d664Ed9E33Dd54F536f8e46bC",
       "chainId": 8453,
       "decimals": 18,
-      "logoURI": "/images/usdt-assets/usdt.png"
-    },
-    {
-      "name": "ETH",
-      "symbol": "ETH",
-      "address": "0xaE4d24eC7b12C4fECC9e2C72bd2d04A29Ac46E62",
-      "chainId": 8453,
-      "decimals": 18,
-      "logoURI": "/images/ETH.png"
+      "logoURI": "/images/robot-assets/robot.png"
     }
     
   ]

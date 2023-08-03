@@ -177,7 +177,7 @@ const SetPriceStage: React.FC<React.PropsWithChildren<SetPriceStageProps>> = ({
             {t('The NFT will be removed from your wallet and put on sale at this price.')}
           </Text>
           <Text small color="textSubtle">
-            {t('Sales are in WETH. You can swap WETH to BASE 1:1 for free with BaseDex.')}
+            {t('Sales are in WETH. You can swap WETH to BASE 1:1 for free with RobotSwap.')}
           </Text>
         </Box>
       </Grid>

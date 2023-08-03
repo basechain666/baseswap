@@ -22,7 +22,7 @@ const NotOkNFT = ({ admissionProfile }) => {
         <>
           <LinkExternal
             style={{ display: 'inline' }}
-            href={`https://BaseDex.finance/nfts/collections/${admissionProfile}`}
+            href={`https://RobotSwap.finance/nfts/collections/${admissionProfile}`}
           >
             {t('Base Squad NFT')}
           </LinkExternal>
@@ -50,7 +50,7 @@ const NotOkProfilePoints = ({ pointThreshold }) => {
           <br />
           <LinkExternal
             style={{ display: 'inline' }}
-            href={`https://BaseDex.finance/profile/${account}/achievements/`}
+            href={`https://RobotSwap.finance/profile/${account}/achievements/`}
           >
             {t('Base Profile')}
           </LinkExternal>

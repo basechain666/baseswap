@@ -1,7 +1,7 @@
 import { getAddress } from '@ethersproject/address'
 import memoize from 'lodash/memoize'
 import { ChainId, Token, WETH } from '@pancakeswap/sdk'
-import { USDT_BASE } from '@pancakeswap/tokens'
+import { ROBOT_BASE } from '@pancakeswap/tokens'
 
 const mapping = {
   [ChainId.BASE]: 'smartchain',
@@ -13,8 +13,8 @@ const getTokenLogoURL =
     if (token && token.address === WETH[ChainId.BASE].address ) {
       return `/images/weth.png`
     }
-    if (token && token.address === USDT_BASE.address ) {
-      return `/images/usdt-assets/usdt.png`
+    if (token && token.address === ROBOT_BASE.address ) {
+      return `/images/robot-assets/robot.png`
     } 
 
     return null

@@ -76,17 +76,17 @@ const config: (
       items: [
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
-    {
-      label: t('Staking'),
-      href: '/staking',
-      icon: TrophyIcon,
-      // supportChainIds: [],
-      fillIcon: TrophyFillIcon,
-      showItemsOnMobile: false,
-      image: '/images/decorations/pe2.png',
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
+    // {
+    //   label: t('Staking'),
+    //   href: '/staking',
+    //   icon: TrophyIcon,
+    //   // supportChainIds: [],
+    //   fillIcon: TrophyFillIcon,
+    //   showItemsOnMobile: false,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
     {
       label: t('Farm'),
       href: '/farm',

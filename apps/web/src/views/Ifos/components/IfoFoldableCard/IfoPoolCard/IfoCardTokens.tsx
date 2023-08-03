@@ -193,8 +193,8 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
           <Box>
             <MessageText display="inline">
               {publicIfoData.status === 'finished'
-                ? t('Activate BaseDex Profile to take part in next IFO‘s!')
-                : t('You need an active BaseDex Profile to take part in an IFO!')}
+                ? t('Activate RobotSwap Profile to take part in next IFO‘s!')
+                : t('You need an active RobotSwap Profile to take part in an IFO!')}
             </MessageText>{' '}
             <MessageTextLink href="/ifo#ifo-how-to" color="#D67E0A" display="inline">
               {t('How does it work?')} »

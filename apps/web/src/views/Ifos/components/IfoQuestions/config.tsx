@@ -17,12 +17,12 @@ const config = [
         no participation fee.
       </Trans>,
       <Trans>
-        In the Public Sale, everyone with an active BaseDex profile can commit. However the maximum amount of CAKE
+        In the Public Sale, everyone with an active RobotSwap profile can commit. However the maximum amount of CAKE
         users can commit, is equal to the number of iCAKE they have.
       </Trans>,
       <>
         <Trans>Learn more about iCAKE</Trans>
-        <InlineLink ml="4px" external href="https://docs.BaseDex.finance/products/ifo-initial-farm-offering/icake">
+        <InlineLink ml="4px" external href="https://docs.RobotSwap.finance/products/ifo-initial-farm-offering/icake">
           <Trans>here</Trans>
         </InlineLink>
       </>,
@@ -37,7 +37,7 @@ const config = [
         We recommend you to check if you are eligible to participate in the Private Sale first. In the Public Sale, if
         the amount you commit is too small, you may not receive a meaningful amount of IFO tokens.
       </Trans>,
-      <Trans>Just remember you need an active BaseDex Profile in order to participate.</Trans>,
+      <Trans>Just remember you need an active RobotSwap Profile in order to participate.</Trans>,
     ],
   },
   {

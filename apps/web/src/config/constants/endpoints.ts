@@ -6,8 +6,8 @@ export const GRAPH_API_PREDICTION_CAKE = 'https://api.thegraph.com/subgraphs/nam
 
 export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancakeswap/lottery'
 export const SNAPSHOT_BASE_URL = process.env.NEXT_PUBLIC_SNAPSHOT_BASE_URL
-export const API_PROFILE = 'https://profile.baseswap.com'
-export const API_NFT = 'https://nft.baseswap.com/api/v1'
+export const API_PROFILE = 'https://profile.robotswap.com'
+export const API_NFT = 'https://nft.robotswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}/graphql`
 export const SNAPSHOT_HUB_API = `${SNAPSHOT_BASE_URL}/api/message`
 export const GRAPH_API_POTTERY = 'https://api.thegraph.com/subgraphs/name/pancakeswap/pottery'
@@ -32,7 +32,7 @@ export const FARM_API = 'https://farms.base-swap.workers.dev'
 
 export const BIT_QUERY = 'https://graphql.bitquery.io'
 
-export const ACCESS_RISK_API = 'https://red.alert.baseswap.com/red-api'
+export const ACCESS_RISK_API = 'https://red.alert.robotswap.com/red-api'
 
 export const CELER_API = 'https://api.celerscan.com/scan'
 

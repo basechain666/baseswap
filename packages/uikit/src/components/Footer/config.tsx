@@ -8,26 +8,26 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Contact",
-        href: "https://docs.BaseDex.finance/contact-us",
+        href: "https://docs.RobotSwap.finance/contact-us",
       },
       {
         label: "Blog",
-        href: "https://medium.com/BaseDex",
+        href: "https://medium.com/RobotSwap",
       },
       {
         label: "Community",
-        href: "https://docs.BaseDex.finance/contact-us/telegram",
+        href: "https://docs.RobotSwap.finance/contact-us/telegram",
       },
       {
         label: "CAKE",
-        href: "https://docs.BaseDex.finance/tokenomics/cake",
+        href: "https://docs.RobotSwap.finance/tokenomics/cake",
       },
       {
         label: "—",
       },
       {
         label: "Online Store",
-        href: "https://BaseDex.creator-spring.com/",
+        href: "https://RobotSwap.creator-spring.com/",
         isHighlighted: true,
       },
     ],
@@ -37,15 +37,15 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Customer",
-        href: "Support https://docs.BaseDex.finance/contact-us/customer-support",
+        href: "Support https://docs.RobotSwap.finance/contact-us/customer-support",
       },
       {
         label: "Troubleshooting",
-        href: "https://docs.BaseDex.finance/help/troubleshooting",
+        href: "https://docs.RobotSwap.finance/help/troubleshooting",
       },
       {
         label: "Guides",
-        href: "https://docs.BaseDex.finance/get-started",
+        href: "https://docs.RobotSwap.finance/get-started",
       },
     ],
   },
@@ -54,23 +54,23 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Github",
-        href: "https://github.com/BaseDex",
+        href: "https://github.com/RobotSwap",
       },
       {
         label: "Documentation",
-        href: "https://docs.BaseDex.finance",
+        href: "https://docs.RobotSwap.finance",
       },
       {
         label: "Bug Bounty",
-        href: "https://app.gitbook.com/@BaseDex-1/s/BaseDex/code/bug-bounty",
+        href: "https://app.gitbook.com/@RobotSwap-1/s/RobotSwap/code/bug-bounty",
       },
       {
         label: "Audits",
-        href: "https://docs.BaseDex.finance/help/faq#is-BaseDex-safe-has-BaseDex-been-audited",
+        href: "https://docs.RobotSwap.finance/help/faq#is-RobotSwap-safe-has-RobotSwap-been-audited",
       },
       {
         label: "Careers",
-        href: "https://docs.BaseDex.finance/hiring/become-a-chef",
+        href: "https://docs.RobotSwap.finance/hiring/become-a-chef",
       },
     ],
   },
@@ -80,7 +80,7 @@ export const socials = [
   {
     label: "Twitter",
     icon: TwitterIcon,
-    href: "https://twitter.com/BaseDex",
+    href: "https://twitter.com/RobotSwap",
   },
   {
     label: "Telegram",
@@ -88,7 +88,7 @@ export const socials = [
     items: [
       {
         label: "English",
-        href: "https://t.me/BaseDex",
+        href: "https://t.me/RobotSwap",
       },
       {
         label: "中文",

@@ -18,7 +18,7 @@ import { FarmKV } from './kv'
 
 const router = Router()
 
-const allowedOrigin = /[^\w](base\.run)|(localhost:3000)|(baseswap.finance)|(baseswap.com)$/
+const allowedOrigin = /[^\w](base\.run)|(localhost:3000)|(robotswap.finance)|(robotswap.com)$/
 
 router.get('/apr', async ({ query }) => {
   if (typeof query?.key === 'string' && query.key === FORCE_UPDATE_KEY) {
