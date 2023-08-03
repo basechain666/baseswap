@@ -6,6 +6,7 @@ import { ChevronDownIcon } from "../../../../components/Svg";
 import { UserMenuProps, variants } from "./types";
 import MenuIcon from "./MenuIcon";
 import { UserMenuItem } from "./styles";
+import { StyledSocialLinks } from "../../../../components/Footer/styles";
 
 export const StyledUserMenu = styled(Flex)`
   align-items: center;
@@ -124,7 +125,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
       </StyledUserMenu>
       {!disabled && (
         <Menu style={styles.popper} ref={setTooltipRef} {...attributes.popper} isOpen={isOpen}>
-          <Box onClick={() => setIsOpen(false)}>{children?.({ isOpen })}</Box>
+          <Box onClick={() => setIsOpen(false)}>{children?.({ isOpen })}
+          </Box>
         </Menu>
       )}
     </Flex>

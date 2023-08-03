@@ -194,7 +194,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
           )}
           <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
             <Inner>{children}</Inner>
-            <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} style={{ position: "absolute" , bottom: "5%", left: "50%", transform: "translateX(-50%)"}} />
+            <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "0px"]} style={{ position: "absolute" , bottom: "0px", left: "50%", transform: "translateX(-50%)"}} />
           </BodyWrapper>
         </Wrapper>
       </AtomBox>
