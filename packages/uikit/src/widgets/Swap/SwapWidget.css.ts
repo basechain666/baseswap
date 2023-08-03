@@ -140,7 +140,7 @@ export const pageVariants = recipe({
     }),
     style({
       backgroundSize: "auto",
-      marginTop: "10%",
+      paddingTop: "10% !important" ,
     }),
     responsiveStyle({
       sm: {

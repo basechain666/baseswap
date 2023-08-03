@@ -25,7 +25,6 @@ import { SentryErrorBoundary } from '../components/ErrorBoundary'
 import Menu from '../components/Menu'
 import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
-import Halo from '../components/Halo'
 
 // const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
 
@@ -145,12 +144,8 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           <Component {...pageProps} />
         </Layout>
       </ShowMenu>
-      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
-      {/* <FixedSubgraphHealthIndicator /> */}
-      <Halo />
       <NetworkModal pageSupportedChains={Component.chains} />
-      {/* <TransactionsDetailModal /> */}
       {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
     </ProductionErrorBoundary>
   )

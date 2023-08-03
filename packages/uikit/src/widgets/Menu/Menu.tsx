@@ -138,7 +138,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
       <AtomBox
         asChild
         minHeight={{
-          xs: "auto",
+          xs: "100vh",
           md: "100vh",
         }}
       >
