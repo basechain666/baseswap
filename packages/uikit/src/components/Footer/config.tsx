@@ -1,7 +1,7 @@
 import { Language } from "../LangSelector/types";
 import { FooterLinkType } from "./types";
-import { TwitterIcon, TelegramIcon, RedditIcon, InstagramIcon, GithubIcon, DiscordIcon, MediumIcon } from "../Svg";
-
+import { TwitterIcon, TelegramIcon, RedditIcon, InstagramIcon, GithubIcon, DiscordIcon, MediumIcon, ZeroPlusIcon } from "../Svg";
+// import { zeroplus } from "";
 export const footerLinks: FooterLinkType[] = [
   {
     label: "About",
@@ -83,28 +83,33 @@ export const socials = [
     href: "https://twitter.com/RobotSwap",
   },
   {
+    label: "0.plus",
+    icon: ZeroPlusIcon,
+    href: "0.plus (https://0.plus/RobotSwap00)",
+  },
+  {
     label: "Telegram",
     icon: TelegramIcon,
     items: [
       {
         label: "English",
-        href: "https://t.me/RobotSwap",
+        href: "https://t.me/RobotSwap00",
       },
       {
         label: "中文",
-        href: "https://t.me/BaseSwap_CN",
+        href: "https://t.me/RobotSwap00",
       },
       {
         label: "繁體",
-        href: "https://t.me/BaseSwap_TW",
+        href: "https://t.me/RobotSwap00",
       },
       {
         label: "日本語",
-        href: "https://t.me/baseswapjp",
+        href: "https://t.me/RobotSwap00",
       },
       {
         label: "한국어",
-        href: "https://t.me/baseswapko",
+        href: "https://t.me/RobotSwap00",
       },
     ],
   },

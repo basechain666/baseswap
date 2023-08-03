@@ -76,13 +76,12 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               ))}
             </StyledList>
           ))}
-          <Box style={{color: 'white', lineHeight: "1.5"}}>RobotSwap is a DeFi platform based on Base Chain including Swap, LaunchPad, Staking. RobotSwap optimises the trading experience from the node up to build the fastest DEX in the Base Chain.</Box>
           <Box display={["none", null, "block"]}>
             <img src="/images/logo.png" style={{maxWidth: '35%'}}/>
           </Box>
 
         </Flex>
-        {/* <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} /> */}
+        <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
         {/* <StyledToolsContainer
           data-theme="dark"
           order={[1, null, 3]}
