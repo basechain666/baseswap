@@ -8,7 +8,7 @@ export enum ChainId {
   BSC_TESTNET = 97,
 }
 
-export const FACTORY_ADDRESS = '0x88d3a9309122D897e32C6e601d257c848Cd7e1aE'
+export const FACTORY_ADDRESS = '0x3E07B3d7A62003676c2d28a2BB0c4897246dA030'
 
 const FACTORY_ADDRESS_ETH = '0x88d3a9309122D897e32C6e601d257c848Cd7e1aE'
 
@@ -33,7 +33,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
 export const WETH = {
   [ChainId.BASE]: new ERC20Token(
     ChainId.BASE,
-    '0x2978453c8D8878f0F65284d0C37aea36bCAe7860',
+    '0x4a830A8698029EAC5Eb5d67C57d473b1c021190e',
     18,
     'WETH',
     'Wrapped ETH',
@@ -67,7 +67,6 @@ export const WETH9 = {
     'https://weth.io'
   ),
 }
-
 
 
 export const WNATIVE: Record<number, ERC20Token> = {

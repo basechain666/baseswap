@@ -2,7 +2,7 @@ import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
 export const ROBOT_BASE = new ERC20Token(
   ChainId.BASE,
-  '0x74bAB5Fbb144708d664Ed9E33Dd54F536f8e46bC',
+  '0x8688C0a86dab912c4dF95903c973495fD04fCb7d',
   18,
   'ROBOT',
   'ROBOT',

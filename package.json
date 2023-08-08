@@ -49,5 +49,8 @@
   },
   "volta": {
     "node": "16.18.0"
+  },
+  "dependencies": {
+    "posix-character-classes": "^1.0.0"
   }
 }

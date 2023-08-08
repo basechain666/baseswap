@@ -82,38 +82,15 @@ export const socials = [
     icon: TwitterIcon,
     href: "https://twitter.com/RobotSwap",
   },
-  {
-    label: "0.plus",
-    icon: ZeroPlusIcon,
-    href: "0.plus (https://0.plus/RobotSwap00)",
-  },
+
   {
     label: "Telegram",
     icon: TelegramIcon,
-    items: [
-      {
-        label: "English",
-        href: "https://t.me/RobotSwap00",
-      },
-      {
-        label: "中文",
-        href: "https://t.me/RobotSwap00",
-      },
-      {
-        label: "繁體",
-        href: "https://t.me/RobotSwap00",
-      },
-      {
-        label: "日本語",
-        href: "https://t.me/RobotSwap00",
-      },
-      {
-        label: "한국어",
-        href: "https://t.me/RobotSwap00",
-      },
-    ],
-  },
- 
+    href: "https://t.me/RobotSwap00",
+  }
+
+
+
 ];
 
 export const langs: Language[] = [...Array(20)].map((_, i) => ({

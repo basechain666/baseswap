@@ -76,8 +76,8 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               ))}
             </StyledList>
           ))}
-          <Box display={["none", null, "block"]}>
-            <img src="/images/logo.png" style={{maxWidth: '35%'}}/>
+          <Box display={["none", null, "block"]} width={["60%", null, "35%"]}>
+            <img src="/images/logo.png" />
           </Box>
 
         </Flex>
