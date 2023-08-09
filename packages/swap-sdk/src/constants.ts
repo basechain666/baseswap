@@ -8,7 +8,7 @@ export enum ChainId {
   BSC_TESTNET = 97,
 }
 
-export const FACTORY_ADDRESS = '0x73A8eb78a5fE76f5Dd28c1fb343395A6BBfB0aC5'
+export const FACTORY_ADDRESS = '0x3D77593254E2ed460b3c5665F2575F151eC187d0'
 
 const FACTORY_ADDRESS_ETH = '0x88d3a9309122D897e32C6e601d257c848Cd7e1aE'
 
@@ -19,7 +19,7 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.BASE]: FACTORY_ADDRESS,
   [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
 }
-export const INIT_CODE_HASH = '0x0030aeac881a5ff8fe1c36a3756bbca2610563167bad2c32992ec613ef48c892'
+export const INIT_CODE_HASH = '0xee262178aee939608f8705fef0e4ac0cdbcc5b0a1a53fcfd77ac949b3c28fe59'
 
 const INIT_CODE_HASH_ETH = '0xabd8ae955d6c92d0b3bf87e9e1d5edcc2fcb44a5fac810da029a68554c526dcc'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
@@ -33,7 +33,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
 export const WETH = {
   [ChainId.BASE]: new ERC20Token(
     ChainId.BASE,
-    '0x49903b7AD4F1F91Fe3c6DBDEeA256531fdc2BfAc',
+    '0x4200000000000000000000000000000000000006',
     18,
     'WETH',
     'Wrapped ETH',
