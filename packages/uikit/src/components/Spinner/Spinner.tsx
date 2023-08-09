@@ -47,7 +47,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ size = 128 }
     <Container>
       {/* <RotatingPancakeIcon width={`${size * 0.5}px`} />
       <FloatingPanIcon width={`${size}px`} /> */}
-      <img src="/images/spinner.svg" />
+      {/* <img src="/images/spinner.svg" /> */}
     </Container>
   );
 };

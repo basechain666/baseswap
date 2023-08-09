@@ -7,7 +7,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.ETHEREUM]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
   [ChainId.RINKEBY]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
   [ChainId.GOERLI]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
-  [ChainId.BASE]: '0x8D544C4AE2E5cBC5AA053fE7F25B574aA05f56Cf',
+  [ChainId.BASE]: '0xAc9964dA6261CCAb8B6875D99Bf4BE020b6f507c',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
 }
 
@@ -47,7 +47,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY], WNATIVE[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
-  [ChainId.BASE]: [baseTokens.robot, baseTokens.eth],
+  [ChainId.BASE]: [baseTokens.robot, WNATIVE[ChainId.BASE]],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
 
@@ -58,7 +58,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM]],
   ],
   [ChainId.BASE]: [
-    [baseTokens.robot, baseTokens.eth],
+    [baseTokens.robot, WNATIVE[ChainId.BASE]],
   ],
 }
 

@@ -173,7 +173,7 @@ function ManageLists({
     setListUrlInput(e.target.value)
   }, [])
 
-  // const fetchList = useFetchListCallback(dispatch)
+  const fetchList = useFetchListCallback(dispatch)
 
   const validUrl: boolean = useMemo(() => {
     return uriToHttp(listUrlInput).length > 0
@@ -221,27 +221,27 @@ function ManageLists({
   const [tempList, setTempList] = useState<TokenList>()
   const [addError, setAddError] = useState<string | undefined>()
 
-  // useEffect(() => {
-  //   async function fetchTempList() {
-  //     fetchList(listUrlInput, false)
-  //       .then((list) => setTempList(list))
-  //       .catch(() => setAddError('Error importing list'))
-  //   }
-  //   // if valid url, fetch details for card
-  //   if (validUrl) {
-  //     fetchTempList()
-  //   } else {
-  //     setTempList(undefined)
-  //     if (listUrlInput !== '') {
-  //       setAddError('Enter valid list location')
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchTempList() {
+      fetchList(listUrlInput, false)
+        .then((list) => setTempList(list))
+        .catch(() => setAddError('Error importing list'))
+    }
+    // if valid url, fetch details for card
+    if (validUrl) {
+      fetchTempList()
+    } else {
+      setTempList(undefined)
+      if (listUrlInput !== '') {
+        setAddError('Enter valid list location')
+      }
+    }
 
-  //   // reset error
-  //   if (listUrlInput === '') {
-  //     setAddError(undefined)
-  //   }
-  // }, [fetchList, listUrlInput, validUrl])
+    // reset error
+    if (listUrlInput === '') {
+      setAddError(undefined)
+    }
+  }, [fetchList, listUrlInput, validUrl])
 
   // check if list is already imported
   const isImported = Object.keys(lists).includes(listUrlInput)
