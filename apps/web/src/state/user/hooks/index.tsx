@@ -479,7 +479,7 @@ export function usePairAdder(): (pair: Pair) => void {
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [ERC20Token, ERC20Token]): ERC20Token {
-  return new ERC20Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'Base-LP', 'RobotSwap LPs')
+  return new ERC20Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'RobotSwap-LP', 'RobotSwap LPs')
 }
 
 /**
@@ -488,6 +488,7 @@ export function toV2LiquidityToken([tokenA, tokenB]: [ERC20Token, ERC20Token]): 
 export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
   const { chainId } = useActiveChainId()
   const tokens = useOfficialsAndUserAddedTokens()
+  console.log("useOfficialsAndUserAddedTokens:", tokens)
   // pinned pairs
   const pinnedPairs = useMemo(() => (chainId ? PINNED_PAIRS[chainId] ?? [] : []), [chainId])
   const { data: farmPairs = [] } = useSWRImmutable(chainId && ['track-farms-pairs', chainId], async () => {
@@ -536,7 +537,6 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
       return [deserializeToken(forChain[pairId].token0), deserializeToken(forChain[pairId].token1)]
     })
   }, [savedSerializedPairs, chainId])
-
   const combinedList = useMemo(
     () => userPairs.concat(generatedPairs).concat(pinnedPairs).concat(farmPairs),
     [generatedPairs, pinnedPairs, userPairs, farmPairs],

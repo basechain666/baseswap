@@ -17,7 +17,14 @@
       "chainId": 8453,
       "decimals": 18,
       "logoURI": "/images/robot-assets/robot.png"
+    },
+    {
+      "name": "WETH",
+      "symbol": "WETH",
+      "address": "0x4200000000000000000000000000000000000006",
+      "chainId": 8453,
+      "decimals": 18,
+      "logoURI": "/images/weth.png"
     }
-    
   ]
 }
