@@ -33,7 +33,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
 export const WETH = {
   [ChainId.BASE]: new ERC20Token(
     ChainId.BASE,
-    '0xDBa9daE634D805f0aDCEA8D634C14301Bc902206',
+    '0x4200000000000000000000000000000000000006',
     18,
     'WETH',
     'Wrapped ETH',
