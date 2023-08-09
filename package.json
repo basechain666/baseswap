@@ -51,6 +51,8 @@
     "node": "16.18.0"
   },
   "dependencies": {
-    "posix-character-classes": "^1.0.0"
+    "@pancakeswap/token-lists": "^0.0.8",
+    "posix-character-classes": "^1.0.0",
+    "tsup": "^7.2.0"
   }
 }

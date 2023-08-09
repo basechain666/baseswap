@@ -47,7 +47,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY], WNATIVE[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
-  [ChainId.BASE]: [baseTokens.robot, WNATIVE[ChainId.BASE]],
+  [ChainId.BASE]: [baseTokens.robot, baseTokens.eth],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
 
@@ -58,7 +58,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM]],
   ],
   [ChainId.BASE]: [
-    [baseTokens.robot, WNATIVE[ChainId.BASE]],
+    [baseTokens.robot, baseTokens.eth],
   ],
 }
 

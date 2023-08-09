@@ -1,37 +1,21 @@
 import { useTranslation } from '@pancakeswap/localization'
-import { TokenList, Version } from '@pancakeswap/token-lists'
-import {
-  acceptListUpdate,
-  disableList,
-  enableList,
-  removeList,
-  useFetchListCallback,
-} from '@pancakeswap/token-lists/react'
-import {
-  AutoColumn,
-  Button,
-  CheckmarkIcon,
-  CogIcon,
-  Column,
-  Input,
-  LinkExternal,
-  ListLogo,
-  Text,
-  Toggle,
-  useTooltip,
-} from '@pancakeswap/uikit'
-import uriToHttp from '@pancakeswap/utils/uriToHttp'
+import { Button, CheckmarkIcon, CogIcon, Input, LinkExternal, Text, Toggle, useTooltip } from '@pancakeswap/uikit'
+import { TokenList, Version } from '@uniswap/token-lists'
 import Card from 'components/Card'
-import { MULTI_CHAIN_LIST_URLS, UNSUPPORTED_LIST_URLS } from 'config/constants/lists'
+import { UNSUPPORTED_LIST_URLS } from 'config/constants/lists'
 import { useAtomValue } from 'jotai'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useListState } from 'state/lists/lists'
 import styled from 'styled-components'
+// import { useFetchListCallback, acceptListUpdate, disableList, enableList, removeList } from '@pancakeswap/token-lists'
+import uriToHttp from '@pancakeswap/utils/uriToHttp'
 
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import { selectorByUrlsAtom, useActiveListUrls, useAllLists, useIsListActive } from '../../state/lists/hooks'
 
+import Column, { AutoColumn } from '../Layout/Column'
 import Row, { RowBetween, RowFixed } from '../Layout/Row'
+import { ListLogo } from '../Logo'
 import { CurrencyModalView } from './types'
 
 function listVersionLabel(version: Version): string {
@@ -74,43 +58,43 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
     return list.tokens.reduce((acc, cur) => (cur.chainId === chainId ? acc + 1 : acc), 0)
   }, [chainId, list])
 
-  const handleAcceptListUpdate = useCallback(() => {
-    if (!pending) return
-    dispatch(acceptListUpdate(listUrl))
-  }, [dispatch, listUrl, pending])
+  // const handleAcceptListUpdate = useCallback(() => {
+  //   if (!pending) return
+  //   dispatch(acceptListUpdate(listUrl))
+  // }, [dispatch, listUrl, pending])
 
-  const handleRemoveList = useCallback(() => {
-    // eslint-disable-next-line no-alert
-    if (window.confirm('Please confirm you would like to remove this list')) {
-      dispatch(removeList(listUrl))
-    }
-  }, [dispatch, listUrl])
+  // const handleRemoveList = useCallback(() => {
+  //   // eslint-disable-next-line no-alert
+  //   if (window.confirm('Please confirm you would like to remove this list')) {
+  //     dispatch(removeList(listUrl))
+  //   }
+  // }, [dispatch, listUrl])
 
-  const handleEnableList = useCallback(() => {
-    dispatch(enableList(listUrl))
-  }, [dispatch, listUrl])
+  // const handleEnableList = useCallback(() => {
+  //   dispatch(enableList(listUrl))
+  // }, [dispatch, listUrl])
 
-  const handleDisableList = useCallback(() => {
-    dispatch(disableList(listUrl))
-  }, [dispatch, listUrl])
+  // const handleDisableList = useCallback(() => {
+  //   dispatch(disableList(listUrl))
+  // }, [dispatch, listUrl])
 
-  const { targetRef, tooltip, tooltipVisible } = useTooltip(
-    <div>
-      <Text>{list && listVersionLabel(list.version)}</Text>
-      <LinkExternal external href={`https://tokenlists.org/token-list?url=${listUrl}`}>
-        {t('See')}
-      </LinkExternal>
-      <Button variant="danger" scale="xs" onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
-        {t('Remove')}
-      </Button>
-      {pending && (
-        <Button variant="text" onClick={handleAcceptListUpdate} style={{ fontSize: '12px' }}>
-          {t('Update list')}
-        </Button>
-      )}
-    </div>,
-    { placement: 'right-end', trigger: 'click', isInPortal: false },
-  )
+  // const { targetRef, tooltip, tooltipVisible } = useTooltip(
+  //   <div>
+  //     <Text>{list && listVersionLabel(list.version)}</Text>
+  //     <LinkExternal external href={`https://tokenlists.org/token-list?url=${listUrl}`}>
+  //       {t('See')}
+  //     </LinkExternal>
+  //     <Button variant="danger" scale="xs" onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
+  //       {t('Remove')}
+  //     </Button>
+  //     {pending && (
+  //       <Button variant="text" onClick={handleAcceptListUpdate} style={{ fontSize: '12px' }}>
+  //         {t('Update list')}
+  //       </Button>
+  //     )}
+  //   </div>,
+  //   { placement: 'right-end', trigger: 'click' },
+  // )
 
   if (!list) return null
 
@@ -121,7 +105,7 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
       key={listUrl}
       id={listUrlRowHTMLId(listUrl)}
     >
-      {tooltipVisible && tooltip}
+      {/* {tooltipVisible && tooltip} */}
       {list.logoURI ? (
         <ListLogo size="40px" style={{ marginRight: '1rem' }} logoURI={list.logoURI} alt={`${list.name} list logo`} />
       ) : (
@@ -135,12 +119,12 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
           <Text fontSize="12px" mr="6px" textTransform="lowercase">
             {list.tokens.length} {t('Tokens')}
           </Text>
-          <span ref={targetRef}>
+          {/* <span ref={targetRef}>
             <CogIcon color="text" width="12px" />
-          </span>
+          </span> */}
         </RowFixed>
       </Column>
-      <Toggle
+      {/* <Toggle
         checked={isActive}
         onChange={() => {
           if (isActive) {
@@ -149,7 +133,7 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
             handleEnableList()
           }
         }}
-      />
+      /> */}
     </RowWrapper>
   )
 })
@@ -171,8 +155,6 @@ function ManageLists({
 }) {
   const [listUrlInput, setListUrlInput] = useState<string>('')
 
-  const { chainId } = useActiveChainId()
-
   const { t } = useTranslation()
   const [, dispatch] = useListState()
 
@@ -191,7 +173,7 @@ function ManageLists({
     setListUrlInput(e.target.value)
   }, [])
 
-  const fetchList = useFetchListCallback(dispatch)
+  // const fetchList = useFetchListCallback(dispatch)
 
   const validUrl: boolean = useMemo(() => {
     return uriToHttp(listUrlInput).length > 0
@@ -202,13 +184,7 @@ function ManageLists({
     return listUrls
       .filter((listUrl) => {
         // only show loaded lists, hide unsupported lists
-        const isValid = Boolean(lists[listUrl].current) && !UNSUPPORTED_LIST_URLS.includes(listUrl)
-
-        if (isValid) {
-          return MULTI_CHAIN_LIST_URLS[chainId]?.includes(listUrl)
-        }
-
-        return false
+        return Boolean(lists[listUrl].current) && !UNSUPPORTED_LIST_URLS.includes(listUrl)
       })
       .sort((u1, u2) => {
         const { current: l1 } = lists[u1]
@@ -223,10 +199,10 @@ function ManageLists({
         }
 
         if (l1 && l2) {
-          // Always make PancakeSwap list in top.
+          // Always make RobotSwap list in top.
           const keyword = 'pancakeswap'
-          if (!l1.name.toLowerCase().includes(keyword) && l2.name.toLowerCase().includes(keyword)) {
-            return 1
+          if (l1.name.toLowerCase().includes(keyword) || l2.name.toLowerCase().includes(keyword)) {
+            return -1
           }
 
           return l1.name.toLowerCase() < l2.name.toLowerCase()
@@ -239,30 +215,33 @@ function ManageLists({
         if (l2) return 1
         return 0
       })
-  }, [lists, chainId, activeCopy])
+  }, [lists, activeCopy])
 
   // temporary fetched list for import flow
   const [tempList, setTempList] = useState<TokenList>()
   const [addError, setAddError] = useState<string | undefined>()
 
-  useEffect(() => {
-    // if valid url, fetch details for card
-    if (validUrl) {
-      fetchList(listUrlInput, false)
-        .then((list) => setTempList(list))
-        .catch(() => setAddError('Error importing list'))
-    } else {
-      setTempList(undefined)
-      if (listUrlInput !== '') {
-        setAddError('Enter valid list location')
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchTempList() {
+  //     fetchList(listUrlInput, false)
+  //       .then((list) => setTempList(list))
+  //       .catch(() => setAddError('Error importing list'))
+  //   }
+  //   // if valid url, fetch details for card
+  //   if (validUrl) {
+  //     fetchTempList()
+  //   } else {
+  //     setTempList(undefined)
+  //     if (listUrlInput !== '') {
+  //       setAddError('Enter valid list location')
+  //     }
+  //   }
 
-    // reset error
-    if (listUrlInput === '') {
-      setAddError(undefined)
-    }
-  }, [fetchList, listUrlInput, validUrl])
+  //   // reset error
+  //   if (listUrlInput === '') {
+  //     setAddError(undefined)
+  //   }
+  // }, [fetchList, listUrlInput, validUrl])
 
   // check if list is already imported
   const isImported = Object.keys(lists).includes(listUrlInput)
@@ -294,7 +273,7 @@ function ManageLists({
         ) : null}
       </AutoColumn>
       {tempList && (
-        <AutoColumn style={{ marginTop: 8 }}>
+        <AutoColumn style={{ paddingTop: 0 }}>
           <Card padding="12px 20px">
             <RowBetween>
               <RowFixed>
