@@ -212,6 +212,7 @@ export default function SwapForm() {
       <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
         <AutoColumn gap="sm">
           <CurrencyInputPanel
+            showBUSD
             label={independentField === Field.OUTPUT && !showWrap && trade ? t('From (estimated)') : t('From')}
             value={formattedAmounts[Field.INPUT]}
             showMaxButton={!atMaxAmountInput}
@@ -245,6 +246,7 @@ export default function SwapForm() {
             </AutoRow>
           </AutoColumn>
           <CurrencyInputPanel
+            showBUSD
             value={formattedAmounts[Field.OUTPUT]}
             onUserInput={handleTypeOutput}
             label={independentField === Field.INPUT && !showWrap && trade ? t('To (estimated)') : t('To')}

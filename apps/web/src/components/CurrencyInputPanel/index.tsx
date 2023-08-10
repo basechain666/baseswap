@@ -130,7 +130,7 @@ export default function CurrencyInputPanel({
     showBUSD ? currency : undefined,
     Number.isFinite(+value) ? +value : undefined,
   )
-
+    console.log("amountInDollar", amountInDollar)
   const [onPresentCurrencyModal] = useModal(
     <CurrencySearchModal
       onCurrencySelect={onCurrencySelect}
