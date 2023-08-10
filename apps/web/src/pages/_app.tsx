@@ -66,14 +66,14 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover RobotSwap, the leading DEX on BASE Chain (BASE) with the best farms in DeFi and a lottery for CAKE."
+          content="Cheaper and faster than Uniswap? Discover OnePieceSwap, the leading DEX on BASE Chain (BASE) with the best farms in DeFi and a lottery for CAKE."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://RobotSwap.finance/images/hero.png" />
+        <meta name="twitter:image" content="https://OnePieceSwap.finance/images/hero.png" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="RobotSwap - A next evolution DeFi exchange on BASE Chain (BASE)" />
-        <title>RobotSwap</title>
+        <meta name="twitter:title" content="OnePieceSwap - A next evolution DeFi exchange on BASE Chain (BASE)" />
+        <title>OnePieceSwap</title>
         {(Component as NextPageWithLayout).mp && (
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script src="https://public.bnbstatic.com/static/js/mp-webview-sdk/webview-v1.0.0.min.js" id="mp-webview" />

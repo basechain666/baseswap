@@ -1,5 +1,5 @@
 {
-  "name": "RobotSwap Default List",
+  "name": "OnePieceSwap Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -7,16 +7,16 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://RobotSwap.finance/logo.png",
+  "logoURI": "https://OnePieceSwap.finance/logo.png",
   "keywords": ["base", "default"],
   "tokens": [
     {
-      "name": "ROBOT",
-      "symbol": "ROBOT",
-      "address": "0x8688C0a86dab912c4dF95903c973495fD04fCb7d",
+      "name": "ONEPIECE",
+      "symbol": "ONEPIECE",
+      "address": "0xfC819e5b0D419bc50b8515F7Eef47BE39F4DD802",
       "chainId": 8453,
       "decimals": 18,
-      "logoURI": "/images/robot-assets/robot.png"
+      "logoURI": "/images/onepiece-assets/onepiece.png"
     }
     
   ]

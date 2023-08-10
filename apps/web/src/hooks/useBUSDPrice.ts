@@ -62,7 +62,7 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
           // const price = reserve0 / busdPair.token0.decimals
           // console.log("price:", price)
         } else {
-          const reserve1 = busdPair.reserve1
+          const reserve1 = busdPair.reserve1.toFixed(2)
           console.log("reserve1:", reserve1)
         }
         const price = busdPair.priceOf(wnative)

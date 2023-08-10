@@ -72,8 +72,8 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'RobotSwap',
-    appLogoUrl: 'https://robotswap.com/logo.png',
+    appName: 'OnePieceSwap',
+    appLogoUrl: 'https://onepieceswap.com/logo.png',
   },
 })
 

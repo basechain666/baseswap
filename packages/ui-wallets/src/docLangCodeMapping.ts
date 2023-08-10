@@ -11,5 +11,5 @@ const docLangCodeMapping: Record<string, string> = {
 
 export const getDocLink = (code: string) =>
   docLangCodeMapping[code]
-    ? `https://docs.robotswap.finance/v/${docLangCodeMapping[code]}/get-started/connection-guide`
-    : `https://docs.robotswap.finance/get-started/connection-guide`
+    ? `https://docs.onepieceswap.finance/v/${docLangCodeMapping[code]}/get-started/connection-guide`
+    : `https://docs.onepieceswap.finance/get-started/connection-guide`

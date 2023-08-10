@@ -43,7 +43,7 @@ const Stats = () => {
         {t('Trusted with billions.')}
       </Heading>
       <Text textAlign="center" color="textSubtle">
-        {t('RobotSwap has the most users of any decentralized platform, ever.')}
+        {t('OnePieceSwap has the most users of any decentralized platform, ever.')}
       </Text>
       <Flex flexWrap="wrap">
         <Text display="inline" textAlign="center" color="textSubtle" mb="20px">

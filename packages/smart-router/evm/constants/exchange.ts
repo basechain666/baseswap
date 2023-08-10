@@ -24,7 +24,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.GOERLI]: [WNATIVE[ChainId.RINKEBY], USDC[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.BASE]: [
     baseTokens.weth,
-    baseTokens.robot,
+    baseTokens.onepiece,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
@@ -60,7 +60,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ],
   [ChainId.RINKEBY]: [USDC[ChainId.RINKEBY], WNATIVE[ChainId.RINKEBY], BUSD[ChainId.RINKEBY]],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
-  [ChainId.BASE]: [baseTokens.weth,  baseTokens.robot],
+  [ChainId.BASE]: [baseTokens.weth,  baseTokens.onepiece],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.weth, bscTestnetTokens.cake, bscTestnetTokens.busd],
 }
 
@@ -71,6 +71,6 @@ export const PINNED_PAIRS: {
     [WNATIVE[ChainId.ETHEREUM], USDC[ChainId.ETHEREUM]],
   ],
   [ChainId.BASE]: [
-    [baseTokens.robot, baseTokens.weth],
+    [baseTokens.onepiece, baseTokens.weth],
   ],
 }

@@ -72,7 +72,7 @@ export const Anchors: React.FC<React.PropsWithChildren> = () => {
                 return (
                   <Button
                     as="a"
-                    href="https://RobotSwap.finance"
+                    href="https://OnePieceSwap.finance"
                     key={scale}
                     variant={variant}
                     scale={scale}
@@ -88,10 +88,10 @@ export const Anchors: React.FC<React.PropsWithChildren> = () => {
         })}
       </Box>
       <Box>
-        <Button as="a" href="https://RobotSwap.finance" mr="8px" external disabled>
+        <Button as="a" href="https://OnePieceSwap.finance" mr="8px" external disabled>
           Disabled
         </Button>
-        <Button as="a" href="https://RobotSwap.finance" variant="secondary" external disabled>
+        <Button as="a" href="https://OnePieceSwap.finance" variant="secondary" external disabled>
           Disabled
         </Button>
       </Box>

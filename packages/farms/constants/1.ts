@@ -16,7 +16,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'ETH-USDT LP',
     lpAddress: '0x17C1Ae82D99379240059940093762c5e4539aba5',
     quoteToken: ethereumTokens.weth,
-    token: ethereumTokens.robot,
+    token: ethereumTokens.onepiece,
   },
   {
     pid: 126,

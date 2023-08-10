@@ -15,10 +15,18 @@ const MenuItems: React.FC<React.PropsWithChildren<MenuItemsProps>> = ({
   return (
     <Flex {...props}>
       {items.map(({ label, items: menuItems = [], href, icon, disabled }) => {
+        console.log("item:", href)
         const statusColor = menuItems?.find((menuItem) => menuItem.status !== undefined)?.status?.color;
         const isActive = activeItem === href;
         const linkProps = isTouchDevice() && menuItems && menuItems.length > 0 ? {} : { href };
         const Icon = icon;
+        // if (href==='/twitter') {
+        //   return (
+        //     <MenuItem {...linkProps} isActive={isActive} statusColor={statusColor} isDisabled={disabled}>
+        //       <a href="https://twitter.com/OnePiece_Swap" target="_blank">twitter</a>
+        //     </MenuItem>
+        //   )
+        // }
         return (
           <DropdownMenu
             key={`${label}#${href}`}

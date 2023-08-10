@@ -66,8 +66,9 @@ const config: (
 
 
     {
-      label: t('LaunchPad'),
-      href: '/launchpad',
+      label: t('Twitter'),
+      href: '/twitter',
+      target: "_blank",
       icon: EarnIcon,
       // supportChainIds: [],
       fillIcon: EarnFillIcon,
@@ -87,17 +88,17 @@ const config: (
     //   items: [
     //   ].map((item) => addMenuItemSupported(item, chainId)),
     // },
-    {
-      label: t('Farm'),
-      href: '/farm',
-      icon: ShareIcon,
-      // supportChainIds: [],
-      fillIcon: ShareIcon,
-      showItemsOnMobile: false,
-      image: '/images/decorations/pe2.png',
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
+    // {
+    //   label: t('Farm'),
+    //   href: '/farm',
+    //   icon: ShareIcon,
+    //   // supportChainIds: [],
+    //   fillIcon: ShareIcon,
+    //   showItemsOnMobile: false,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

@@ -35,7 +35,7 @@ const eventDescriptionConfigBuilder = ({ t }: EventDescriptionType) => ({
     },
   ],
   primaryButton: {
-    to: 'https://docs.RobotSwap.finance/',
+    to: 'https://docs.OnePieceSwap.finance/',
     text: t('View Documentation'),
     external: true,
     isDisplayed: false,

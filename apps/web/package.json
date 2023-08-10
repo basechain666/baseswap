@@ -6,7 +6,7 @@
     "analyze": "ANALYZE=true yarn build",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3002",
+    "start": "next start -p 3003",
     "test": "LC_ALL=\"en_US.UTF-8\" jest",
     "test:watch": "LC_ALL=\"en_US.UTF-8\" jest --watch",
     "test:config": "jest src/config/__tests__/ --testPathIgnorePatterns",

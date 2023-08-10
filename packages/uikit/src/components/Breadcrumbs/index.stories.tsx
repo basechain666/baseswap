@@ -25,7 +25,7 @@ export const Default: React.FC<React.PropsWithChildren> = () => {
           <Text color="textDisabled">Crumb 2</Text>
         </BreadCrumbs>
         <BreadCrumbs>
-          <Text>RobotSwap</Text>
+          <Text>OnePieceSwap</Text>
           <Text>The #1 AMM and yield farm on Binance Smart Chain.</Text>
         </BreadCrumbs>
       </Text>

@@ -25,7 +25,7 @@ const IfoCakeRow: React.FC<React.PropsWithChildren> = () => {
           },
         )}
       </Text>
-      <InlineLink external href="https://docs.RobotSwap.finance/products/ifo-initial-farm-offering/icake">
+      <InlineLink external href="https://docs.OnePieceSwap.finance/products/ifo-initial-farm-offering/icake">
         {t('Learn more about iCAKE')}
       </InlineLink>
     </Box>,

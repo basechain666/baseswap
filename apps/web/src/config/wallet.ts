@@ -40,9 +40,9 @@ const walletsConfig = ({
       icon: '/images/wallets/metamask.png',
       installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isMetaMask) && metaMaskConnector.ready,
       connectorId: ConnectorNames.MetaMask,
-      deepLink: 'https://metamask.app.link/dapp/robotswap.finance/',
+      deepLink: 'https://metamask.app.link/dapp/onepieceswap.finance/',
       qrCode,
-      downloadLink: 'https://metamask.app.link/dapp/robotswap.finance/',
+      downloadLink: 'https://metamask.app.link/dapp/onepieceswap.finance/',
     },
     {
       id: 'binance',
@@ -76,7 +76,7 @@ const walletsConfig = ({
         (Boolean(window.ethereum?.isTrust) ||
           // @ts-ignore
           Boolean(window.ethereum?.isTrustWallet)),
-      deepLink: 'https://link.trustwallet.com/open_url?coin_id=20000714&url=https://robotswap.finance/',
+      deepLink: 'https://link.trustwallet.com/open_url?coin_id=20000714&url=https://onepieceswap.finance/',
       downloadLink: {
         desktop: 'https://chrome.google.com/webstore/detail/trust-wallet/egjidjbpglichdcondbcbdnbeeppgdph/related',
       },
@@ -179,5 +179,5 @@ const docLangCodeMapping: Record<string, string> = {
 
 export const getDocLink = (code: string) =>
   docLangCodeMapping[code]
-    ? `https://docs.robotswap.finance/v/${docLangCodeMapping[code]}/get-started/connection-guide`
-    : `https://docs.robotswap.finance/get-started/connection-guide`
+    ? `https://docs.onepieceswap.finance/v/${docLangCodeMapping[code]}/get-started/connection-guide`
+    : `https://docs.onepieceswap.finance/get-started/connection-guide`

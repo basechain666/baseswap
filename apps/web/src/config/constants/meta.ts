@@ -3,10 +3,10 @@ import { ContextApi } from '@pancakeswap/localization'
 import { PageMeta } from './types'
 
 export const DEFAULT_META: PageMeta = {
-  title: 'RobotSwap',
+  title: 'OnePieceSwap',
   description:
-    'The most popular AMM on BASE by user count! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by RobotSwap), NFTs, and more, on a platform you can trust.',
-  image: 'https://robotswap.finance/images/hero.png',
+    'The most popular AMM on BASE by user count! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by OnePieceSwap), NFTs, and more, on a platform you can trust.',
+  image: 'https://onepieceswap.finance/images/hero.png',
 }
 
 interface PathList {
@@ -45,7 +45,7 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/base-squad': { basePath: true, title: t('Base Squad') },
       '/pottery': { basePath: true, title: t('Pottery') },
     },
-    defaultTitleSuffix: t('RobotSwap'),
+    defaultTitleSuffix: t('OnePieceSwap'),
   }
 }
 

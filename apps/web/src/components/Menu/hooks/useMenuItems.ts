@@ -16,7 +16,9 @@ export const useMenuItems = (): ConfigMenuItemsType[] => {
   const menuItemsStatus = useMenuItemsStatus()
 
   const menuItems = useMemo(() => {
-    return config(t, isDark, languageCode, chainId)
+    const result = config(t, isDark, languageCode, chainId)
+    console.log("result:",result)
+    return result
   }, [t, isDark, languageCode, chainId])
 
   return useMemo(() => {

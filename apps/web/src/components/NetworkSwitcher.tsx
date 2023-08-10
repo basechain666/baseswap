@@ -59,10 +59,10 @@ const NetworkSelect = ({ switchNetwork, chainId }) => {
         style={{ justifyContent: 'flex-start' }}
         as="a"
         target="_blank"
-        href="https://aptos.RobotSwap.finance/swap"
+        href="https://aptos.OnePieceSwap.finance/swap"
       >
         <Image
-          src="https://aptos.RobotSwap.finance/images/apt.png"
+          src="https://aptos.OnePieceSwap.finance/images/apt.png"
           width={24}
           height={24}
           unoptimized

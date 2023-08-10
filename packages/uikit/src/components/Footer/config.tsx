@@ -8,26 +8,26 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Contact",
-        href: "https://docs.RobotSwap.finance/contact-us",
+        href: "https://docs.OnePieceSwap.finance/contact-us",
       },
       {
         label: "Blog",
-        href: "https://medium.com/RobotSwap",
+        href: "https://medium.com/OnePieceSwap",
       },
       {
         label: "Community",
-        href: "https://docs.RobotSwap.finance/contact-us/telegram",
+        href: "https://docs.OnePieceSwap.finance/contact-us/telegram",
       },
       {
         label: "CAKE",
-        href: "https://docs.RobotSwap.finance/tokenomics/cake",
+        href: "https://docs.OnePieceSwap.finance/tokenomics/cake",
       },
       {
         label: "—",
       },
       {
         label: "Online Store",
-        href: "https://RobotSwap.creator-spring.com/",
+        href: "https://OnePieceSwap.creator-spring.com/",
         isHighlighted: true,
       },
     ],
@@ -37,15 +37,15 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Customer",
-        href: "Support https://docs.RobotSwap.finance/contact-us/customer-support",
+        href: "Support https://docs.OnePieceSwap.finance/contact-us/customer-support",
       },
       {
         label: "Troubleshooting",
-        href: "https://docs.RobotSwap.finance/help/troubleshooting",
+        href: "https://docs.OnePieceSwap.finance/help/troubleshooting",
       },
       {
         label: "Guides",
-        href: "https://docs.RobotSwap.finance/get-started",
+        href: "https://docs.OnePieceSwap.finance/get-started",
       },
     ],
   },
@@ -54,40 +54,40 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Github",
-        href: "https://github.com/RobotSwap",
+        href: "https://github.com/OnePieceSwap",
       },
       {
         label: "Documentation",
-        href: "https://docs.RobotSwap.finance",
+        href: "https://docs.OnePieceSwap.finance",
       },
       {
         label: "Bug Bounty",
-        href: "https://app.gitbook.com/@RobotSwap-1/s/RobotSwap/code/bug-bounty",
+        href: "https://app.gitbook.com/@OnePieceSwap-1/s/OnePieceSwap/code/bug-bounty",
       },
       {
         label: "Audits",
-        href: "https://docs.RobotSwap.finance/help/faq#is-RobotSwap-safe-has-RobotSwap-been-audited",
+        href: "https://docs.OnePieceSwap.finance/help/faq#is-OnePieceSwap-safe-has-OnePieceSwap-been-audited",
       },
       {
         label: "Careers",
-        href: "https://docs.RobotSwap.finance/hiring/become-a-chef",
+        href: "https://docs.OnePieceSwap.finance/hiring/become-a-chef",
       },
     ],
   },
 ];
 
 export const socials = [
-  {
-    label: "Twitter",
-    icon: TwitterIcon,
-    href: "https://twitter.com/RobotSwap",
-  },
+  // {
+  //   label: "Twitter",
+  //   icon: TwitterIcon,
+  //   href: "https://twitter.com/OnePiece_Swap",
+  // },
 
-  {
-    label: "Telegram",
-    icon: TelegramIcon,
-    href: "https://t.me/RobotSwap00",
-  }
+  // {
+  //   label: "Telegram",
+  //   icon: TelegramIcon,
+  //   href: "https://t.me/RobotSwap00",
+  // }
 
 
 

@@ -1,12 +1,12 @@
 import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
-export const ROBOT_BASE = new ERC20Token(
+export const ONEPIECE_BASE = new ERC20Token(
   ChainId.BASE,
-  '0x8688C0a86dab912c4dF95903c973495fD04fCb7d',
+  '0xfC819e5b0D419bc50b8515F7Eef47BE39F4DD802',
   18,
-  'ROBOT',
-  'ROBOT',
-  'https://robotswap.xyz/',
+  'ONEPIECE',
+  'ONEPIECE',
+  'https://onepieceswap.xyz/',
 )
 
 
@@ -15,8 +15,8 @@ export const CAKE_MAINNET = new ERC20Token(
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
   18,
   'CAKE',
-  'RobotSwap Token',
-  'https://robotswap.finance/',
+  'OnePieceSwap Token',
+  'https://onepieceswap.finance/',
 )
 
 export const CAKE_TESTNET = new ERC20Token(
@@ -24,8 +24,8 @@ export const CAKE_TESTNET = new ERC20Token(
   '0xFa60D973F7642B748046464e165A65B7323b0DEE',
   18,
   'CAKE',
-  'RobotSwap Token',
-  'https://robotswap.finance/',
+  'OnePieceSwap Token',
+  'https://onepieceswap.finance/',
 )
 
 export const USDC_BSC = new ERC20Token(
@@ -147,7 +147,7 @@ export const USDC = {
 }
 
 export const USDT = {
-  [ChainId.BASE]: ROBOT_BASE,
+  [ChainId.BASE]: ONEPIECE_BASE,
   [ChainId.ETHEREUM]: USDT_ETH,
 }
 

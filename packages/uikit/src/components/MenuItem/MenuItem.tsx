@@ -21,6 +21,7 @@ const MenuItem: React.FC<React.PropsWithChildren<MenuItemProps>> = ({
     ? {
         as: linkComponent,
         href,
+        target: "_blank"
       }
     : {
         as: "div",
