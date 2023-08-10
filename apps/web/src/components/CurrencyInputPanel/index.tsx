@@ -23,7 +23,7 @@ const InputRow = styled.div<{ selected: boolean }>`
   justify-content: flex-end;
   padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
-const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })<{ zapStyle?: ZapStyle }>`
+const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' }) <{ zapStyle?: ZapStyle }>`
   padding: 0 0.5rem;
   ${({ zapStyle, theme }) =>
     zapStyle &&
@@ -124,13 +124,17 @@ export default function CurrencyInputPanel({
   const { t } = useTranslation()
 
   const token = pair ? pair.liquidityToken : currency?.isToken ? currency : null
+  console.log("token:", token)
+
   const tokenAddress = token ? isAddress(token.address) : null
+  console.log("tokenAddress:", tokenAddress)
 
   const amountInDollar = useBUSDCurrencyAmount(
     showBUSD ? currency : undefined,
     Number.isFinite(+value) ? +value : undefined,
   )
-    console.log("amountInDollar", amountInDollar)
+  // const amountInDollar = 1
+  console.log("amountInDollar:", amountInDollar, "showBUSD:", showBUSD)
   const [onPresentCurrencyModal] = useModal(
     <CurrencySearchModal
       onCurrencySelect={onCurrencySelect}
@@ -170,9 +174,9 @@ export default function CurrencyInputPanel({
                 <Text id="pair" bold>
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
-                        currency.symbol.length - 5,
-                        currency.symbol.length,
-                      )}`
+                      currency.symbol.length - 5,
+                      currency.symbol.length,
+                    )}`
                     : currency?.symbol) || t('Select a currency')}
                 </Text>
               )}

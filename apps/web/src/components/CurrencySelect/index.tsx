@@ -79,6 +79,7 @@ export const CurrencySelect = ({
   )
 
   const price = useBUSDPrice(selectedCurrencyBalance && selectedCurrency ? selectedCurrency : undefined)
+  console.log("CurrencySelect:", price)
   const quoted = selectedCurrencyBalance && price?.quote(selectedCurrencyBalance)
 
   return (

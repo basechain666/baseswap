@@ -9,7 +9,6 @@ const mapping = {
 
 const getTokenLogoURL =
 (token?: Token) => {
-  console.log("getTokenLogoURL:",token)
     if (token && token.address === WETH[ChainId.BASE].address ) {
       return `/images/weth.png`
     }

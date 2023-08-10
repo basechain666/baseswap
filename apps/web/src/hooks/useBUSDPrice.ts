@@ -30,8 +30,7 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
   const { chainId } = useActiveChainId()
   const wrapped = currency?.wrapped
   const wnative = WNATIVE[chainId]
-  const stable = BUSD[chainId] || USDC[chainId]
-
+  const stable = USDC[chainId] || BUSD[chainId]
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
     () => [
       [chainId && wrapped && wnative?.equals(wrapped) ? undefined : currency, chainId ? wnative : undefined],
@@ -40,8 +39,8 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
     ],
     [wnative, stable, chainId, currency, wrapped],
   )
+  // console.log("useBUSDPrice:", tokenPairs)
   const [[bnbPairState, bnbPair], [busdPairState, busdPair], [busdBnbPairState, busdBnbPair]] = usePairs(tokenPairs)
-
   return useMemo(() => {
     if (!currency || !wrapped || !chainId || !wnative) {
       return undefined
@@ -56,8 +55,19 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
     // handle weth/base
     if (wrapped.equals(wnative)) {
       if (isBUSDPairExist) {
+        console.log("busdPair:", busdPair.reserve0, busdPair.reserve1)
+        if (busdPair.token0.name === "WETH" ) {
+          const reserve0 = busdPair.reserve0.toFixed(2)
+          console.log("reserve0:", reserve0)
+          // const price = reserve0 / busdPair.token0.decimals
+          // console.log("price:", price)
+        } else {
+          const reserve1 = busdPair.reserve1
+          console.log("reserve1:", reserve1)
+        }
         const price = busdPair.priceOf(wnative)
-        return new Price(currency, stable, price.denominator, price.numerator)
+        const newPrice = new Price(currency, stable, price.denominator, price.numerator)
+        return newPrice
       }
       return undefined
     }
@@ -149,7 +159,9 @@ export const useBUSDCurrencyAmount = (currency?: Currency, amount?: number): num
     return undefined
   }
   if (busdPrice) {
-    return multiplyPriceByAmount(busdPrice, amount)
+    const price = multiplyPriceByAmount(busdPrice, amount)
+    console.log("multiplyPriceByAmount:", currency, amount)
+    return price
   }
   return undefined
 }

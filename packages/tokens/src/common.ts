@@ -30,7 +30,7 @@ export const CAKE_TESTNET = new ERC20Token(
 
 export const USDC_BSC = new ERC20Token(
   ChainId.BASE,
-  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+  '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
   18,
   'USDC',
   'Binance-Peg USD Coin',
