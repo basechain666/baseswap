@@ -28,7 +28,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: How does this feature benefit BaseDex users and CAKE holders?
+      label: How does this feature benefit BaseDex users and ONEPIECE holders?
       description: Explain how this feature will be beneficial for the BaseDex community and ecosystem.
     validations:
       required: true

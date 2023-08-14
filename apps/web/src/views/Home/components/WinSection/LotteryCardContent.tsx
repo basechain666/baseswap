@@ -35,7 +35,7 @@ const StyledBalance = styled(Balance)`
 //     },
 //   )
 
-//   const cakePrizesText = t('%cakePrizeInUsd% in CAKE prizes this round', { cakePrizeInUsd: cakePriceBusd.toString() })
+//   const cakePrizesText = t('%cakePrizeInUsd% in ONEPIECE prizes this round', { cakePrizeInUsd: cakePriceBusd.toString() })
 //   const [pretext, prizesThisRound] = cakePrizesText.split(cakePriceBusd.toString())
 //   const amountCollectedInCake = currentLottery ? parseFloat(currentLottery.amountCollectedInCake) : null
 //   const currentLotteryPrize = amountCollectedInCake ? cakePriceBusd.times(amountCollectedInCake) : null
@@ -75,7 +75,7 @@ const StyledBalance = styled(Balance)`
 //           {prizesThisRound}
 //         </Text>
 //         <Text color="white" mb="40px">
-//           {t('Buy tickets with CAKE, win CAKE if your numbers match')}
+//           {t('Buy tickets with ONEPIECE, win ONEPIECE if your numbers match')}
 //         </Text>
 //       </Flex>
 //       <Flex alignItems="center" justifyContent="center">

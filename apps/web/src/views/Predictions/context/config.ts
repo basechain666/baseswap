@@ -16,7 +16,7 @@ export default {
     displayedDecimals: 4,
     token: baseTokens.eth,
   },
-  CAKE: {
+  ONEPIECE: {
     address: getAddress(addresses.predictionsCAKE),
     api: GRAPH_API_PREDICTION_CAKE,
     chainlinkOracleAddress: getAddress(addresses.chainlinkOracleCAKE),

@@ -66,7 +66,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover OnePieceSwap, the leading DEX on BASE Chain (BASE) with the best farms in DeFi and a lottery for CAKE."
+          content="Cheaper and faster than Uniswap? Discover OnePieceSwap, the leading DEX on BASE Chain (BASE) with the best farms in DeFi and a lottery for ONEPIECE."
         />
         <meta name="theme-color" content="#1FC7D4" />
         <meta name="twitter:image" content="https://OnePieceSwap.finance/images/hero.png" />

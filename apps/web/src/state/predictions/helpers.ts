@@ -34,10 +34,10 @@ export enum Result {
 }
 
 export const transformBetResponse = (tokenSymbol) =>
-  tokenSymbol === 'CAKE' ? transformBetResponseCAKE : transformBetResponseBNB
+  tokenSymbol === 'ONEPIECE' ? transformBetResponseCAKE : transformBetResponseBNB
 
 export const transformUserResponse = (tokenSymbol) =>
-  tokenSymbol === 'CAKE' ? transformUserResponseCAKE : transformUserResponseBNB
+  tokenSymbol === 'ONEPIECE' ? transformUserResponseCAKE : transformUserResponseBNB
 
 export const getRoundResult = (bet: Bet, currentEpoch: number): Result => {
   const { round } = bet
@@ -106,7 +106,7 @@ export const getTotalWon = async (): Promise<{ totalWonBNB: number; totalWonCAKE
   ])
 
   const totalWonBNB = getTotalWonMarket(BNBMarket, 'BASE')
-  const totalWonCAKE = getTotalWonMarket(CAKEMarket, 'CAKE')
+  const totalWonCAKE = getTotalWonMarket(CAKEMarket, 'ONEPIECE')
 
   return { totalWonBNB, totalWonCAKE }
 }

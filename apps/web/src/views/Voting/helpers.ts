@@ -44,7 +44,7 @@ export interface Message {
 }
 
 const STRATEGIES = [
-  { name: 'cake', params: { symbol: 'CAKE', address: baseTokens.cake.address, decimals: 18, max: 300 } },
+  { name: 'cake', params: { symbol: 'ONEPIECE', address: baseTokens.cake.address, decimals: 18, max: 300 } },
 ]
 const NETWORK = '8453'
 

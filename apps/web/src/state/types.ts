@@ -212,7 +212,7 @@ export enum PredictionStatus {
 
 export enum PredictionSupportedSymbol {
   BASE = 'BASE',
-  CAKE = 'CAKE',
+  ONEPIECE = 'ONEPIECE',
 }
 
 export enum PredictionsChartView {

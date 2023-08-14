@@ -19,7 +19,7 @@ export const footerLinks: FooterLinkType[] = [
         href: "https://docs.OnePieceSwap.finance/contact-us/telegram",
       },
       {
-        label: "CAKE",
+        label: "ONEPIECE",
         href: "https://docs.OnePieceSwap.finance/tokenomics/cake",
       },
       {

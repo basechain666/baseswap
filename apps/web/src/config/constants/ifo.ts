@@ -3,7 +3,7 @@ import { baseTokens } from '@pancakeswap/tokens'
 import { CAKE_BNB_LP_MAINNET } from './lp'
 import { Ifo } from './types'
 
-export const cakeBnbLpToken = new ERC20Token(ChainId.BASE, CAKE_BNB_LP_MAINNET, 18, 'CAKE-BASE LP')
+export const cakeBnbLpToken = new ERC20Token(ChainId.BASE, CAKE_BNB_LP_MAINNET, 18, 'ONEPIECE-BASE LP')
 
 const ifos: Ifo[] = [
   // {

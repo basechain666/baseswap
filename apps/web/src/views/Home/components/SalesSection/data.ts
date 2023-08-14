@@ -20,7 +20,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
     attributes: [
       { src: 'BASE', alt: t('BASE token') },
       { src: 'BTC', alt: t('BTC token') },
-      { src: 'CAKE', alt: t('CAKE token') },
+      { src: 'ONEPIECE', alt: t('ONEPIECE token') },
     ],
   },
 })
@@ -50,14 +50,14 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('CAKE makes our world go round.'),
+  headingText: t('ONEPIECE makes our world go round.'),
   bodyText: t(
-    'CAKE token is at the heart of the OnePieceSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'ONEPIECE token is at the heart of the OnePieceSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
   ),
   reverse: false,
   primaryButton: {
     to: '/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56',
-    text: t('Buy CAKE'),
+    text: t('Buy ONEPIECE'),
     external: false,
   },
   secondaryButton: {
@@ -71,7 +71,7 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     attributes: [
       { src: 'bottom-right', alt: t('Small 3d base') },
       { src: 'top-right', alt: t('Small 3d base') },
-      { src: 'coin', alt: t('CAKE token') },
+      { src: 'coin', alt: t('ONEPIECE token') },
       { src: 'top-left', alt: t('Small 3d base') },
     ],
   },

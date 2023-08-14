@@ -40,6 +40,7 @@ const CardActions: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
 }) => {
   const { t } = useTranslation()
   const { pid, token, quoteToken, vaultPid, lpSymbol, lpAddress } = farm
+  console.log("CardActions:", lpSymbol)
   const { earnings } = farm.userData || {}
   const { shouldUseProxyFarm } = useContext(YieldBoosterStateContext)
   const isReady = farm.multiplier !== undefined
