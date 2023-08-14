@@ -456,12 +456,12 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   return (
     <StyledActionContainer>
       <ActionTitles>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px" aria-disabled="true">
           {t('Enable Farm')}
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button width="100%" disabled={pendingTx} onClick={handleApprove} variant="secondary">
+        <Button width="100%" disabled={true} onClick={handleApprove} variant="secondary">
           {t('Enable')}
         </Button>
       </ActionContent>

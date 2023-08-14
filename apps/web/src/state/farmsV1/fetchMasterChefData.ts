@@ -6,13 +6,13 @@ import { SerializedFarmConfig } from '../../config/constants/types'
 import { getMasterChefV1Address } from '../../utils/addressHelpers'
 import { getMasterchefV1Contract } from '../../utils/contractHelpers'
 
-// const masterChefAddress = getMasterChefV1Address()
-// const masterChefContract = getMasterchefV1Contract()
+const masterChefAddress = getMasterChefV1Address()
+const masterChefContract = getMasterchefV1Contract()
 
-// export const fetchMasterChefFarmPoolLength = async () => {
-//   const poolLength = await masterChefContract.poolLength()
-//   return poolLength
-// }
+export const fetchMasterChefFarmPoolLength = async () => {
+  const poolLength = await masterChefContract.poolLength()
+  return poolLength
+}
 
 // const masterChefFarmCalls = (farm: SerializedFarm) => {
 //   const { v1pid } = farm

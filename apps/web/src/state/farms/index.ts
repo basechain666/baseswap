@@ -324,6 +324,7 @@ export const farmsSlice = createSlice({
     // Update farms with live data
     builder.addCase(fetchFarmsPublicDataAsync.fulfilled, (state, action) => {
       const [farmPayload, poolLength, regularCakePerBlock] = action.payload
+      console.log("action.payload:",action.payload)
       const farmPayloadPidMap = fromPairs(farmPayload.map((farmData) => [farmData.pid, farmData]))
 
       state.data = state.data.map((farm) => {
@@ -336,6 +337,7 @@ export const farmsSlice = createSlice({
 
     // Update farms with user data
     builder.addCase(fetchFarmUserDataAsync.fulfilled, (state, action) => {
+      console.log("fetchFarmUserDataAsync:", action.payload)
       const userDataMap = fromPairs(action.payload.map((userDataEl) => [userDataEl.pid, userDataEl]))
       state.data = state.data.map((farm) => {
         const userDataEl = userDataMap[farm.pid]

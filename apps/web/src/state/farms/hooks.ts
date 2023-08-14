@@ -60,7 +60,7 @@ export const usePollFarmsWithUserData = () => {
     : ['farmsWithUserData', account, chainId]
 
   useSWRImmutable(
-    account && chainId && !isProxyContractLoading ? name : null,
+    account && chainId ? name : null,
     async () => {
       const farmsConfig = await getFarmConfig(chainId)
       const pids = farmsConfig.map((farmToFetch) => farmToFetch.pid)

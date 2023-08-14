@@ -64,17 +64,14 @@ const getCakePrice = async (isTestnet: boolean) => {
   return pair.priceOf(tokenA)
 }
 
-const farmConfigApi = 'https://farms-config.pages.dev'
-
 export async function saveFarms(chainId: number, event: ScheduledEvent | FetchEvent) {
   try {
     const isTestnet = farmFetcher.isTestnet(chainId)
-    const farmsConfig = await (await fetch(`${farmConfigApi}/${chainId}.json`)).json<SerializedFarmConfig[]>()
+    const farmsConfig =  (await import(`/${chainId}.ts`)).default as SerializedFarmConfig[]
+    console.log("saveFarms farmsConfig:", farmsConfig)
     let lpPriceHelpers: SerializedFarmConfig[] = []
     try {
-      lpPriceHelpers = await (
-        await fetch(`${farmConfigApi}/priceHelperLps/${chainId}.json`)
-      ).json<SerializedFarmConfig[]>()
+      lpPriceHelpers = (await import(`/${chainId}.ts`)).default as SerializedFarmConfig[]
     } catch (error) {
       console.error('Get LP price helpers error', error)
     }
@@ -85,7 +82,7 @@ export async function saveFarms(chainId: number, event: ScheduledEvent | FetchEv
     const { farmsWithPrice, poolLength, regularCakePerBlock } = await farmFetcher.fetchFarms({
       chainId,
       isTestnet,
-      farms: farmsConfig.filter((f) => f.pid !== 0).concat(lpPriceHelpers),
+      farms: farmsConfig.concat(lpPriceHelpers),
     })
 
     const cakeBusdPrice = await getCakePrice(isTestnet)
@@ -125,7 +122,7 @@ export async function handleLpAprs(chainId: number, farmsConfig?: SerializedFarm
 
 export async function saveLPsAPR(chainId: number, farmsConfig?: SerializedFarmConfig[]) {
   // TODO: add other chains
-  if (chainId === 8453) {
+  if (chainId === 99) {
     let data = farmsConfig
     if (!data) {
       const value = await FarmKV.getFarms(chainId)

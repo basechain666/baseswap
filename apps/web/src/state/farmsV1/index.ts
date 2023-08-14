@@ -20,7 +20,7 @@ import {
   fetchFarmUserTokenBalances,
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser'
-// import { fetchMasterChefFarmPoolLength } from './fetchMasterChefData'
+import { fetchMasterChefFarmPoolLength } from './fetchMasterChefData'
 
 const initialState: SerializedFarmsState = {
   data: [],
@@ -40,13 +40,12 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   'farmsV1/fetchFarmsPublicDataAsync',
   async (pids) => {
     const farmsConfig = await getFarmConfig(ChainId.BASE)
-    // const poolLength = await fetchMasterChefFarmPoolLength()
-    const poolLength = BigNumber.from(0)
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
+    const poolLength = await fetchMasterChefFarmPoolLength()
+    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
+    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
 
     // Add price helper farms
-    const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(56)
+    const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(ChainId.BASE)
     const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
 
     const farms = await fetchFarms(farmsWithPriceHelpers)
@@ -89,8 +88,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
   'farmsV1/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
     const farmsConfig = await getFarmConfig(ChainId.BASE)
-    // const poolLength = await fetchMasterChefFarmPoolLength()
-    const poolLength = BigNumber.from(0)
+    const poolLength = await fetchMasterChefFarmPoolLength()
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
     const userFarmAllowances = await fetchFarmUserAllowances(account, farmsCanFetch)

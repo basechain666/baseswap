@@ -184,7 +184,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [boostedOnly, setBoostedOnly] = useState(false)
 
   const activeFarms = farmsLP.filter(
-    (farm) => farm.pid !== 0 && farm.multiplier !== '0X' && (!poolLength || poolLength > farm.pid),
+    (farm) =>  farm.multiplier !== '0X' && (!poolLength || poolLength > farm.pid),
   )
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
   const archivedFarms = farmsLP
@@ -452,7 +452,6 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </Flex>
         )}
         {poolLength && <div ref={observerRef} />}
-        {/* <StyledImage src="/images/decorations/3dpan.png" alt="Base illustration" width={120} height={103} /> */}
       </Page>
     </FarmsContext.Provider>
   )

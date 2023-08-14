@@ -21,6 +21,7 @@ export function createFarmFetcher(multicallv2: MultiCallV2) {
       multicallv2,
       masterChefAddress,
     })
+    console.log("farms:", farms)
     const regularCakePerBlock = formatEther(cakePerBlock)
     const farmsWithPrice = await farmV2FetchFarms({
       multicallv2,
@@ -31,12 +32,13 @@ export function createFarmFetcher(multicallv2: MultiCallV2) {
       totalRegularAllocPoint,
       totalSpecialAllocPoint,
     })
-
-    return {
+    const result = {
       farmsWithPrice,
       poolLength: poolLength.toNumber(),
       regularCakePerBlock: +regularCakePerBlock,
     }
+    console.log("fetchFarms result:", result)
+    return result
   }
   return {
     fetchFarms,
