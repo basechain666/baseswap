@@ -69,6 +69,14 @@ export const USDC_GOERLI = new ERC20Token(
   'tUSDC',
   'test USD Coin',
 )
+export const USDT_BASE = new ERC20Token(
+  ChainId.BASE,
+  '0xC3d8caF26De1509d26A5a556F57F76BA23411B5c',
+  18,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
 
 
 export const USDT_ETH = new ERC20Token(
@@ -147,7 +155,7 @@ export const USDC = {
 }
 
 export const USDT = {
-  [ChainId.BASE]: ONEPIECE_BASE,
+  [ChainId.BASE]: USDT_BASE,
   [ChainId.ETHEREUM]: USDT_ETH,
 }
 
