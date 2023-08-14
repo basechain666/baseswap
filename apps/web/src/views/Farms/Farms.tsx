@@ -333,26 +333,26 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
       <PageHeader>
         <FarmFlexWrapper justifyContent="space-between">
           <Box>
-            <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
+            {/* <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
               {t('Farms')}
             </FarmH1>
             <FarmH2 scale="lg" color="text">
               {t('Stake LP tokens to earn.')}
-            </FarmH2>
-            <NextLinkFromReactRouter to="/farms/auction" prefetch={false}>
+            </FarmH2> */}
+            {/* <NextLinkFromReactRouter to="/farms/auction" prefetch={false}>
               <Button p="0" variant="text">
                 <Text color="primary" bold fontSize="16px" mr="4px">
                   {t('Community Auctions')}
                 </Text>
                 <ArrowForwardIcon color="primary" />
               </Button>
-            </NextLinkFromReactRouter>
+            </NextLinkFromReactRouter> */}
           </Box>
-          {chainId === ChainId.BASE && (
+          {/* {chainId === ChainId.BASE && (
             <Box>
               <BCakeBoosterCard />
             </Box>
-          )}
+          )} */}
         </FarmFlexWrapper>
       </PageHeader>
       <Page>
@@ -452,7 +452,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </Flex>
         )}
         {poolLength && <div ref={observerRef} />}
-        <StyledImage src="/images/decorations/3dpan.png" alt="Base illustration" width={120} height={103} />
+        {/* <StyledImage src="/images/decorations/3dpan.png" alt="Base illustration" width={120} height={103} /> */}
       </Page>
     </FarmsContext.Provider>
   )

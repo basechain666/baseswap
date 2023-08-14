@@ -2,7 +2,7 @@ import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
 export const ONEPIECE_BASE = new ERC20Token(
   ChainId.BASE,
-  '0xfC819e5b0D419bc50b8515F7Eef47BE39F4DD802',
+  '0xBA78d493f42e63ABd27853FA1e7FD5060A351fA3',
   18,
   'ONEPIECE',
   'ONEPIECE',
@@ -30,7 +30,7 @@ export const CAKE_TESTNET = new ERC20Token(
 
 export const USDC_BSC = new ERC20Token(
   ChainId.BASE,
-  '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
+  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
   18,
   'USDC',
   'Binance-Peg USD Coin',

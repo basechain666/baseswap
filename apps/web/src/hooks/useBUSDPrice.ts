@@ -39,7 +39,6 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
     ],
     [wnative, stable, chainId, currency, wrapped],
   )
-  // console.log("useBUSDPrice:", tokenPairs)
   const [[bnbPairState, bnbPair], [busdPairState, busdPair], [busdBnbPairState, busdBnbPair]] = usePairs(tokenPairs)
   return useMemo(() => {
     if (!currency || !wrapped || !chainId || !wnative) {
@@ -52,22 +51,38 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
       busdPair.reserve0.greaterThan('0') &&
       busdPair.reserve1.greaterThan('0')
 
+    console.log("busdPair:", busdPair)
     // handle weth/base
     if (wrapped.equals(wnative)) {
       if (isBUSDPairExist) {
-        console.log("busdPair:", busdPair.reserve0, busdPair.reserve1)
-        if (busdPair.token0.name === "WETH" ) {
-          const reserve0 = busdPair.reserve0.toFixed(2)
-          console.log("reserve0:", reserve0)
-          // const price = reserve0 / busdPair.token0.decimals
-          // console.log("price:", price)
-        } else {
-          const reserve1 = busdPair.reserve1.toFixed(2)
-          console.log("reserve1:", reserve1)
+        if (busdPair.token0.name === "WETH") {
+          const reserve0 = parseFloat(busdPair.reserve0.toExact())
+          console.log("reserve0:", reserve0, busdPair.token0.name)
+
+          const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
+          console.log("reserve1:", reserve1, busdPair.token1.name)
+
+          const price = reserve0 / reserve1
+          console.log("price:", price)
+          const newPrice = new Price(currency, stable, reserve1 * busdPair.token1.decimals, reserve0 * busdPair.token0.decimals)
+          return newPrice
         }
-        const price = busdPair.priceOf(wnative)
-        const newPrice = new Price(currency, stable, price.denominator, price.numerator)
-        return newPrice
+        if (busdPair.token1.name === "WETH") {
+          const reserve0 = parseFloat(busdPair.reserve0.toExact())
+          console.log("reserve0:", reserve0, busdPair.token0.name)
+
+          const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
+          console.log("reserve1:", reserve1, busdPair.token1.name)
+
+          const price = reserve1 / reserve0
+          console.log("price:", price)
+          const newPrice = new Price(currency, stable, reserve0 * busdPair.token0.decimals, reserve1 * busdPair.token1.decimals)
+          return newPrice
+          // const price = busdPair.priceOf(wnative)
+          // const newPrice = new Price(currency, stable, price.denominator, price.numerator)
+          // return newPrice
+        }
+        return undefined
       }
       return undefined
     }

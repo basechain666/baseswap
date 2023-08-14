@@ -31,10 +31,10 @@ export const ZHTW: Language = { locale: 'zh-TW', language: '繁體中文', code:
 
 export const languages: Record<string, Language> = {
   'en-US': EN,
-  'zh-CN': ZHCN,
+  // 'zh-CN': ZHCN,
   'zh-TW': ZHTW,
-  'ja-JP': JA,
-  'ko-KR': KO,
+  // 'ja-JP': JA,
+  // 'ko-KR': KO,
   // 'ar-SA': AR,
   // 'bn-BD': BN,
   // 'de-DE': DE,

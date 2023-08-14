@@ -8,7 +8,7 @@ export enum ChainId {
   BSC_TESTNET = 97,
 }
 
-export const FACTORY_ADDRESS = '0x628B54094b4eEC76153560FA187CAC1B6574563A'
+export const FACTORY_ADDRESS = '0xE4E5b5C838060Da6465A8e14b450570e25708E0e'
 
 const FACTORY_ADDRESS_ETH = '0x88d3a9309122D897e32C6e601d257c848Cd7e1aE'
 
@@ -19,7 +19,7 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.BASE]: FACTORY_ADDRESS,
   [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
 }
-export const INIT_CODE_HASH = '0xab0be46e5aae5f05fbe4681df1fef50f44a85c3dab8eaa0d264ce992d5f58f43'
+export const INIT_CODE_HASH = '0xfd991699ad6fc74146b7355f19869a55d6e2fc3ab0c66f7e68dc006de7988fd1'
 
 const INIT_CODE_HASH_ETH = '0xabd8ae955d6c92d0b3bf87e9e1d5edcc2fcb44a5fac810da029a68554c526dcc'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {

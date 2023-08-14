@@ -17,15 +17,27 @@ const MenuItem: React.FC<React.PropsWithChildren<MenuItemProps>> = ({
   const { isMobile } = useMatchBreakpoints();
   const menuItemRef = useRef<HTMLDivElement>(null);
   const { linkComponent } = useContext(MenuContext);
-  const itemLinkProps: any = href
-    ? {
+  var targetHref 
+  if (href) {
+    if (href === "/twitter") {
+      targetHref = {
         as: linkComponent,
-        href,
+        href: "https://twitter.com/OnePiece_Swap",
         target: "_blank"
       }
-    : {
-        as: "div",
-      };
+    } else {
+      targetHref = {
+        as: linkComponent,
+        href,
+      }
+    }
+  } else {
+    targetHref = {
+      as: "div",
+    }
+  }
+  
+  const itemLinkProps: any = targetHref
   useEffect(() => {
     if (!isMobile || !isActive || !menuItemRef.current || !scrollLayerRef?.current) return;
     const scrollLayer = scrollLayerRef.current;

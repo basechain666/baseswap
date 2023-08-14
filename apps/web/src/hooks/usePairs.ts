@@ -47,10 +47,8 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
       }),
     [tokens],
   )
-  // const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
-  // const pairAddresses = [wethUSDC]
+  console.log("pairAddresses:",pairAddresses)
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
-  // console.log("pairAddresses:", tokens, pairAddresses, results)
   return useMemo(() => {
     return results.map((result, i) => {
       const { result: reserves, loading } = result

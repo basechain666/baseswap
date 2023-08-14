@@ -1,73 +1,6 @@
 import { rinkeby, mainnet, goerli } from 'wagmi/chains'
 import { Chain } from 'wagmi'
 
-// export const avalandche: Chain = {
-//   id: 43114,
-//   name: 'Avalanche C-Chain',
-//   network: 'avalanche',
-//   rpcUrls: {
-//     default: 'https://rpc.ankr.com/avalanche',
-//   },
-//   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
-//   blockExplorers: {
-//     default: {
-//       name: 'snowtrace',
-//       url: 'https://snowtrace.io/',
-//     },
-//   },
-// }
-
-// export const avalandcheFuji: Chain = {
-//   id: 43113,
-//   name: 'Avalanche Fuji',
-//   network: 'avalanche-fuji',
-//   rpcUrls: {
-//     default: 'https://rpc.ankr.com/avalanche_fuji',
-//   },
-//   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
-//   blockExplorers: {
-//     default: {
-//       name: 'snowtrace',
-//       url: 'https://testnet.snowtrace.io/',
-//     },
-//   },
-//   testnet: true,
-// }
-
-// export const fanBASEpera: Chain = {
-//   id: 250,
-//   name: 'Fantom Opera',
-//   network: 'fantom',
-//   nativeCurrency: { name: 'Fantom', symbol: 'FTM', decimals: 18 },
-//   rpcUrls: {
-//     default: 'https://rpc.ftm.tools',
-//   },
-//   blockExplorers: {
-//     default: {
-//       name: 'FTMScan',
-//       url: 'https://ftmscan.com',
-//     },
-//   },
-// }
-
-// export const fantomTestnet: Chain = {
-//   id: 4002,
-//   name: 'Fantom Testnet',
-//   network: 'fantom-testnet',
-//   nativeCurrency: { name: 'Fantom', symbol: 'FTM', decimals: 18 },
-//   rpcUrls: {
-//     default: 'https://rpc.testnet.fantom.network',
-//   },
-//   blockExplorers: {
-//     default: {
-//       name: 'FTMScan',
-//       url: 'https://testnet.ftmscan.com',
-//     },
-//   },
-//   testnet: true,
-// }
-
-// const bscExplorer = { name: 'BscScan', url: 'https://bscscan.com' }
 const baseExplorer = { name: 'BaseScan', url: 'https://basescan.org/' }
 
 export const base: Chain = {
@@ -88,7 +21,7 @@ export const base: Chain = {
     decimals: 18,
   },
   multicall: {
-    address: '0xEa82B06Da0d83942B0051F0ed7B271eF40de1819',
+    address: '0xf5560E11657e69eEc78eAe000fD8C58421898cD5',
     blockCreated: 2098185,
   },
 }

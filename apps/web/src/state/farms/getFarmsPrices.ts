@@ -133,7 +133,7 @@ const nativeStableLpMap = {
     stable: 'tUSDC',
   },
   [ChainId.BASE]: {
-    address: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+    address: '0x282e15FA390CB53B5ED92aBE89329f165307890e',
     wNative: 'WETH',
     stable: 'BUSD',
   },
