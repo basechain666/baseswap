@@ -461,7 +461,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button width="100%" disabled={true} onClick={handleApprove} variant="secondary">
+        <Button width="100%" disabled onClick={handleApprove} variant="secondary">
           {t('Enable')}
         </Button>
       </ActionContent>
