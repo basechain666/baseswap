@@ -79,7 +79,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
   })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   const { lpAddress } = farm
-  const isPromotedFarm = farm.token.symbol === 'CAKE'
+  const isPromotedFarm = farm.token.symbol === 'ONEPIECE'
   const { stakedBalance, proxy, tokenBalance } = farm.userData
 
   const toggleExpandableSection = useCallback(() => {
