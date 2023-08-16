@@ -36,11 +36,15 @@ import { ViewMode } from 'state/user/actions'
 import { useRouter } from 'next/router'
 import ToggleView from 'components/ToggleView/ToggleView'
 import { useActiveChainId } from 'hooks/useActiveChainId'
+import useBUSDPrice, { usePriceByPairs } from 'hooks/useBUSDPrice'
+import { ONEPIECE_BASE, USDC } from '@pancakeswap/tokens'
+import { Interface } from '@ethersproject/abi'
+import IPancakePairABI from 'config/abi/IPancakePair.json'
+import { useMultipleContractSingleData } from 'state/multicall/hooks'
+import { formatUnits } from '@ethersproject/units'
 import Table from './components/FarmTable/FarmTable'
 import { FarmWithStakedValue } from './components/types'
 import { BCakeBoosterCard } from './components/BCakeBoosterCard'
-import useBUSDPrice, { getWETHPrice, usePriceByPairs } from 'hooks/useBUSDPrice'
-import { ONEPIECE_BASE, USDC } from '@pancakeswap/tokens'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -152,17 +156,29 @@ const FinishedTextLink = styled(Link)`
 `
 
 const NUMBER_OF_FARMS_VISIBLE = 12
+const PAIR_INTERFACE = new Interface(IPancakePairABI)
 
 const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { pathname, query: urlQuery } = useRouter()
   const { t } = useTranslation()
   const { chainId } = useActiveChainId()
   const { data: farmsLP, userDataLoaded, poolLength, regularCakePerBlock } = useFarms()
-  let onePiecePrice = usePriceByPairs(ONEPIECE_BASE, WETH[chainId])?.toSignificant(6)
-  const wethPrice = getWETHPrice()
-  const onePiecePriceNumber = wethPrice / parseFloat(onePiecePrice)
-  // console.log("onePiecePrice:", onePiecePrice, "wethPrice:",  wethPrice, "onePiecePriceNumber:", onePiecePriceNumber)
+  const onePiecePrice = usePriceByPairs(ONEPIECE_BASE, WETH[chainId])
+  const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
+  const pairAddresses = [wethUSDC]
+  const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
+  let onePiecePriceNumber 
+  let wethPrice
+  if (results[0].result?.length > 0) {
+    const {reserve0, reserve1} = results[0].result
+    const amount0 = parseFloat(formatUnits(reserve0, 18))
+    const amount1 = parseFloat(formatUnits(reserve1, 6))
+    wethPrice = amount1 / amount0 
+    const fixedPrice = onePiecePrice?.toFixed(2)
 
+    onePiecePriceNumber = wethPrice / parseFloat(fixedPrice)
+    console.log("onePiecePriceNumber:",onePiecePriceNumber, "fixedPrice:", fixedPrice)
+  }
   const [_query, setQuery] = useState('')
   const normalizedUrlSearch = useMemo(() => (typeof urlQuery?.search === 'string' ? urlQuery.search : ''), [urlQuery])
   const query = normalizedUrlSearch && !_query ? normalizedUrlSearch : _query
@@ -447,7 +463,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </FinishedTextContainer>
         )}
         {viewMode === ViewMode.TABLE ? (
-          <Table farms={chosenFarmsMemoized} onePiecePrice={onePiecePrice} userDataReady={userDataReady} />
+          <Table farms={chosenFarmsMemoized} onePiecePrice={new BigNumber(onePiecePrice?.toFixed(2))} userDataReady={userDataReady} />
         ) : (
           <FlexLayout>{children}</FlexLayout>
         )}

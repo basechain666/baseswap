@@ -17,7 +17,7 @@ export interface ApyButtonProps {
   lpTokenPrice: BigNumber
   lpLabel?: string
   multiplier: string
-  cakePrice?: BigNumber
+  onePiecePrice?: BigNumber
   apr?: number
   displayApr?: string
   lpRewardsApr?: number
@@ -34,7 +34,7 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
   lpLabel,
   lpTokenPrice,
   lpSymbol,
-  cakePrice,
+  onePiecePrice,
   apr,
   multiplier,
   displayApr,
@@ -66,7 +66,7 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
       stakingTokenBalance={userBalanceInFarm}
       stakingTokenSymbol={lpSymbol}
       stakingTokenPrice={lpTokenPrice.toNumber()}
-      earningTokenPrice={cakePrice?.toNumber()}
+      earningTokenPrice={onePiecePrice?.toNumber()}
       apr={bCakeMultiplier ? apr * bCakeMultiplier : apr}
       multiplier={multiplier}
       displayApr={bCakeMultiplier ? (_toNumber(displayApr) - apr + apr * bCakeMultiplier).toFixed(2) : displayApr}
@@ -76,7 +76,7 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
         boosted ? (
           <BCakeCalculator
             targetInputBalance={calculatorBalance}
-            earningTokenPrice={cakePrice?.toNumber()}
+            earningTokenPrice={onePiecePrice?.toNumber()}
             lpTotalSupply={lpTotalSupply}
             setBCakeMultiplier={setBCakeMultiplier}
           />

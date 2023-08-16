@@ -9,7 +9,7 @@ import { useAccount } from 'wagmi'
 const FarmsHistoryPage = () => {
   const { address: account } = useAccount()
   const { chosenFarmsMemoized } = useContext(FarmsContext)
-  const cakePrice = usePriceCakeBusd()
+  const onePiecePrice = usePriceCakeBusd()
 
   return (
     <>
@@ -18,7 +18,7 @@ const FarmsHistoryPage = () => {
           key={farm.pid}
           farm={farm}
           displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
-          cakePrice={cakePrice}
+          onePiecePrice={onePiecePrice}
           account={account}
           removed
         />

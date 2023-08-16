@@ -43,7 +43,7 @@ interface FarmCardProps {
   farm: FarmWithStakedValue
   displayApr: string
   removed: boolean
-  cakePrice?: BigNumber
+  onePiecePrice?: BigNumber
   account?: string
   originalLiquidity?: BigNumber
 }
@@ -52,7 +52,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
   farm,
   displayApr,
   removed,
-  cakePrice,
+  onePiecePrice,
   account,
   originalLiquidity,
 }) => {
@@ -126,7 +126,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
                     multiplier={farm.multiplier}
                     lpLabel={lpLabel}
                     addLiquidityUrl={addLiquidityUrl}
-                    cakePrice={cakePrice}
+                    onePiecePrice={onePiecePrice}
                     apr={farm.apr}
                     displayApr={displayApr}
                     lpRewardsApr={farm.lpRewardsApr}

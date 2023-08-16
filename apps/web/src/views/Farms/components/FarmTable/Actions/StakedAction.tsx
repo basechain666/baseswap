@@ -174,7 +174,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   const { tokenBalance, stakedBalance } = userData || {}
 
   const router = useRouter()
-  const cakePrice = usePriceCakeBusd()
+  const onePiecePrice = usePriceCakeBusd()
   const [bCakeMultiplier, setBCakeMultiplier] = useState<number | null>(() => null)
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
@@ -321,7 +321,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   const bCakeCalculatorSlot = (calculatorBalance) => (
     <BCakeCalculator
       targetInputBalance={calculatorBalance}
-      earningTokenPrice={cakePrice?.toNumber()}
+      earningTokenPrice={onePiecePrice?.toNumber()}
       lpTotalSupply={lpTotalSupply}
       setBCakeMultiplier={setBCakeMultiplier}
     />
@@ -342,7 +342,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
       tokenName={lpSymbol}
       multiplier={multiplier}
       addLiquidityUrl={addLiquidityUrl}
-      cakePrice={cakePrice}
+      onePiecePrice={onePiecePrice}
       showActiveBooster={boosterState === YieldBoosterState.ACTIVE}
       bCakeMultiplier={bCakeMultiplier}
       bCakeCalculatorSlot={bCakeCalculatorSlot}

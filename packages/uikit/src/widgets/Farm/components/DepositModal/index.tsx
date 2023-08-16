@@ -40,7 +40,7 @@ interface DepositModalProps {
   apr?: number;
   displayApr?: string;
   addLiquidityUrl?: string;
-  cakePrice?: BigNumber;
+  onePiecePrice?: BigNumber;
   showActiveBooster?: boolean;
   lpTotalSupply: BigNumber;
   bCakeMultiplier?: number | null;
@@ -65,7 +65,7 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
   lpLabel = "",
   apr = 0,
   addLiquidityUrl = "",
-  cakePrice = BIG_ZERO,
+  onePiecePrice = BIG_ZERO,
   showActiveBooster,
   bCakeMultiplier,
   showCrossChainFarmWarning,
@@ -89,10 +89,10 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
   const interestBreakdown = getInterestBreakdown({
     principalInUSD: !lpTokensToStake.isNaN() ? usdToStake.toNumber() : 0,
     apr,
-    earningTokenPrice: cakePrice?.toNumber(),
+    earningTokenPrice: onePiecePrice?.toNumber(),
   });
 
-  const annualRoi = cakePrice.times(interestBreakdown[3]);
+  const annualRoi = onePiecePrice.times(interestBreakdown[3]);
   const annualRoiAsNumber = annualRoi.toNumber();
   const formattedAnnualRoi = formatNumber(annualRoiAsNumber, annualRoi.gt(10000) ? 0 : 2, annualRoi.gt(10000) ? 0 : 2);
 
@@ -125,7 +125,7 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
           stakingTokenBalance={stakedBalance.plus(max)}
           stakingTokenSymbol={tokenName}
           stakingTokenPrice={lpPrice.toNumber()}
-          earningTokenPrice={cakePrice?.toNumber()}
+          earningTokenPrice={onePiecePrice?.toNumber()}
           apr={bCakeMultiplier ? apr * bCakeMultiplier : apr}
           multiplier={multiplier}
           displayApr={bCakeMultiplier ? (_toNumber(displayApr) - apr + apr * bCakeMultiplier).toFixed(2) : displayApr}

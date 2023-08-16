@@ -40,10 +40,10 @@ const HarvestAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = (
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const { t } = useTranslation()
-  const cakePrice = usePriceCakeBusd()
+  const onePiecePrice = usePriceCakeBusd()
   const rawEarningsBalance = account ? getBalanceAmount(earnings) : BIG_ZERO
   const displayBalance = rawEarningsBalance.toFixed(5, BigNumber.ROUND_DOWN)
-  const earningsBusd = rawEarningsBalance ? rawEarningsBalance.multipliedBy(cakePrice).toNumber() : 0
+  const earningsBusd = rawEarningsBalance ? rawEarningsBalance.multipliedBy(onePiecePrice).toNumber() : 0
   const tooltipBalance = rawEarningsBalance.isGreaterThan(new BigNumber(0.00001)) ? displayBalance : '< 0.00001'
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     `${tooltipBalance} ${t(

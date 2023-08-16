@@ -16,7 +16,7 @@ export interface AprProps {
   lpTokenPrice: BigNumber
   tokenAddress?: string
   quoteTokenAddress?: string
-  cakePrice: BigNumber
+  onePiecePrice: BigNumber
   originalValue: number
   hideButton?: boolean
   strikethrough?: boolean
@@ -55,7 +55,7 @@ const Apr: React.FC<React.PropsWithChildren<AprProps>> = ({
   multiplier,
   tokenAddress,
   quoteTokenAddress,
-  cakePrice,
+  onePiecePrice,
   originalValue,
   hideButton = false,
   strikethrough,
@@ -76,7 +76,7 @@ const Apr: React.FC<React.PropsWithChildren<AprProps>> = ({
           lpLabel={lpLabel}
           lpTokenPrice={lpTokenPrice}
           multiplier={multiplier}
-          cakePrice={cakePrice}
+          onePiecePrice={onePiecePrice}
           apr={originalValue}
           displayApr={value}
           lpRewardsApr={lpRewardsApr}

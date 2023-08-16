@@ -71,7 +71,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
   const { account, chainId } = useActiveWeb3React()
   const native = useNativeCurrency()
   const { tokenBalance, stakedBalance } = userData
-  const cakePrice = usePriceCakeBusd()
+  const onePiecePrice = usePriceCakeBusd()
   const router = useRouter()
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, fetchTxResponse, loading: pendingTx } = useCatchTxError()
@@ -226,7 +226,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
   const bCakeCalculatorSlot = (calculatorBalance) => (
     <BCakeCalculator
       targetInputBalance={calculatorBalance}
-      earningTokenPrice={cakePrice?.toNumber()}
+      earningTokenPrice={onePiecePrice?.toNumber()}
       lpTotalSupply={lpTotalSupply}
       setBCakeMultiplier={setBCakeMultiplier}
     />
@@ -247,7 +247,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
       apr={apr}
       displayApr={displayApr}
       addLiquidityUrl={addLiquidityUrl}
-      cakePrice={cakePrice}
+      onePiecePrice={onePiecePrice}
       showActiveBooster={boosterState === YieldBoosterState.ACTIVE}
       bCakeMultiplier={bCakeMultiplier}
       bCakeCalculatorSlot={bCakeCalculatorSlot}

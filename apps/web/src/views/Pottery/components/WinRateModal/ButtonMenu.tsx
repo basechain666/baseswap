@@ -5,13 +5,13 @@ import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { useAccount } from 'wagmi'
 
 interface ButtonMenuProps {
-  cakePrice: BigNumber
+  onePiecePrice: BigNumber
   stakingTokenBalance: BigNumber
   setPrincipalFromUSDValue: (amount: string) => void
 }
 
 const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
-  cakePrice,
+  onePiecePrice,
   stakingTokenBalance,
   setPrincipalFromUSDValue,
 }) => {
@@ -43,7 +43,7 @@ const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
         variant="tertiary"
         style={{ textTransform: 'uppercase' }}
         disabled={!stakingTokenBalance.isFinite() || stakingTokenBalance.lte(0) || !account}
-        onClick={() => setPrincipalFromUSDValue(getBalanceNumber(stakingTokenBalance.times(cakePrice)).toString())}
+        onClick={() => setPrincipalFromUSDValue(getBalanceNumber(stakingTokenBalance.times(onePiecePrice)).toString())}
       >
         {t('My Balance')}
       </Button>

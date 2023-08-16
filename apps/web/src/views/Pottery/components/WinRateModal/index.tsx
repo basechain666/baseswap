@@ -47,7 +47,7 @@ const WinRateModal: React.FC<React.PropsWithChildren<WinRateModalProps>> = ({
   totalSupply,
 }) => {
   const { t } = useTranslation()
-  const cakePrice = usePriceCakeBusd()
+  const onePiecePrice = usePriceCakeBusd()
   const { getLockedApy } = useVaultApy()
   const balanceInputRef = useRef<HTMLInputElement | null>(null)
   const apy = getLockedApy(weeksToSeconds(10))
@@ -63,7 +63,7 @@ const WinRateModal: React.FC<React.PropsWithChildren<WinRateModalProps>> = ({
     toggleEditingCurrency,
     setCalculatorMode,
     setTargetWinRate,
-  } = useWinRateCalculator({ cakePrice, totalSupply })
+  } = useWinRateCalculator({ onePiecePrice, totalSupply })
 
   const { principalAsUSD, principalAsToken } = state.data
   const { editingCurrency } = state.controls
@@ -114,7 +114,7 @@ const WinRateModal: React.FC<React.PropsWithChildren<WinRateModalProps>> = ({
             switchEditingUnits={toggleEditingCurrency}
           />
           <ButtonMenu
-            cakePrice={cakePrice}
+            onePiecePrice={onePiecePrice}
             stakingTokenBalance={stakingTokenBalance}
             setPrincipalFromUSDValue={setPrincipalFromUSDValue}
           />

@@ -47,7 +47,7 @@ export const getPoolApr = (
 export const getFarmApr = (
   chainId: number,
   poolWeight: BigNumber,
-  cakePriceUsd: number,
+  cakePriceUsd: BigNumber,
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
   regularCakePerBlock: number,

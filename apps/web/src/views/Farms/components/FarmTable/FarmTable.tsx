@@ -15,7 +15,7 @@ import ProxyFarmContainer from '../YieldBooster/components/ProxyFarmContainer'
 export interface ITableProps {
   farms: FarmWithStakedValue[]
   userDataReady: boolean
-  cakePrice: BigNumber
+  onePiecePrice: BigNumber
   sortColumn?: string
 }
 
@@ -58,7 +58,7 @@ const TableContainer = styled.div`
   position: relative;
 `
 
-const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cakePrice, userDataReady }) => {
+const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, onePiecePrice, userDataReady }) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null)
   const { query } = useRouter()
 
@@ -121,7 +121,7 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
         lpTokenPrice: farm.lpTokenPrice,
         tokenAddress,
         quoteTokenAddress,
-        cakePrice,
+        onePiecePrice,
         lpRewardsApr: farm.lpRewardsApr,
         originalValue: farm.apr,
       },
