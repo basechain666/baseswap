@@ -1,8 +1,8 @@
 import { formatEther } from '@ethersproject/units'
 import { MultiCallV2 } from '@pancakeswap/multicall'
 import { ChainId } from '@pancakeswap/sdk'
-import { masterChefAddresses } from './const'
 import { farmV2FetchFarms, FetchFarmsParams, fetchMasterChefV2Data } from './fetchFarms'
+import { useMasterchef } from 'hooks/useContract'
 import contracts from 'config/constants/contracts'
 
 const supportedChainId = [ChainId.GOERLI, ChainId.BASE, ChainId.BSC_TESTNET, ChainId.ETHEREUM]
@@ -15,30 +15,30 @@ export function createFarmFetcher(multicallv2: MultiCallV2) {
     } & Pick<FetchFarmsParams, 'chainId' | 'farms'>,
   ) => {
     const { isTestnet, farms, chainId } = params
-    const masterChefAddress = isTestnet ? masterChefAddresses[ChainId.BSC_TESTNET] : contracts.masterChef[ChainId.BASE]
+    const masterChefAddress = isTestnet ? contracts.masterChef[ChainId.BSC_TESTNET] :contracts.masterChef[ChainId.BASE]
     const { poolLength, totalRegularAllocPoint, totalSpecialAllocPoint, cakePerBlock } = await fetchMasterChefV2Data({
       isTestnet,
       multicallv2,
       masterChefAddress,
     })
-    console.log("farms:", farms)
     const regularCakePerBlock = formatEther(cakePerBlock)
+    const filtered = farms.filter((f) => !f.pid || poolLength.gt(f.pid))
     const farmsWithPrice = await farmV2FetchFarms({
       multicallv2,
       masterChefAddress,
       isTestnet,
       chainId,
-      farms: farms,
+      farms: filtered,
       totalRegularAllocPoint,
       totalSpecialAllocPoint,
     })
-    const result = {
+    console.log("farmsWithPrice:", farmsWithPrice)
+
+    return {
       farmsWithPrice,
       poolLength: poolLength.toNumber(),
       regularCakePerBlock: +regularCakePerBlock,
     }
-    console.log("fetchFarms result:", result)
-    return result
   }
   return {
     fetchFarms,

@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useState, useMemo, useRef, createContext } from 'react'
 import BigNumber from 'bignumber.js'
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId, WETH } from '@pancakeswap/sdk'
 import { useAccount } from 'wagmi'
 import {
   Image,
@@ -39,6 +39,8 @@ import { useActiveChainId } from 'hooks/useActiveChainId'
 import Table from './components/FarmTable/FarmTable'
 import { FarmWithStakedValue } from './components/types'
 import { BCakeBoosterCard } from './components/BCakeBoosterCard'
+import useBUSDPrice, { getWETHPrice, usePriceByPairs } from 'hooks/useBUSDPrice'
+import { ONEPIECE_BASE, USDC } from '@pancakeswap/tokens'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -156,7 +158,10 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation()
   const { chainId } = useActiveChainId()
   const { data: farmsLP, userDataLoaded, poolLength, regularCakePerBlock } = useFarms()
-  const cakePrice = usePriceCakeBusd()
+  let onePiecePrice = usePriceByPairs(ONEPIECE_BASE, WETH[chainId])?.toSignificant(6)
+  const wethPrice = getWETHPrice()
+  const onePiecePriceNumber = wethPrice / parseFloat(onePiecePrice)
+  // console.log("onePiecePrice:", onePiecePrice, "wethPrice:",  wethPrice, "onePiecePriceNumber:", onePiecePriceNumber)
 
   const [_query, setQuery] = useState('')
   const normalizedUrlSearch = useMemo(() => (typeof urlQuery?.search === 'string' ? urlQuery.search : ''), [urlQuery])
@@ -216,13 +221,14 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
         if (!farm.lpTotalInQuoteToken || !farm.quoteTokenPriceBusd) {
           return farm
         }
-
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
+        console.log("farm.lpTotalInQuoteToken:", farm.lpTotalInQuoteToken.toString(), "farm.quoteTokenPriceBusd:", farm.quoteTokenPriceBusd)
+        // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(wethPrice)
         const { cakeRewardsApr, lpRewardsApr } = isActive
           ? getFarmApr(
               chainId,
               new BigNumber(farm.poolWeight),
-              cakePrice,
+              onePiecePriceNumber,
               totalLiquidity,
               farm.lpAddress,
               regularCakePerBlock,
@@ -241,7 +247,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
 
       return farmsToDisplayWithAPR
     },
-    [query, isActive, chainId, cakePrice, regularCakePerBlock],
+    [query, isActive, chainId, onePiecePrice, regularCakePerBlock],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -327,7 +333,6 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const handleSortOptionChange = (option: OptionProps): void => {
     setSortOption(option.value)
   }
-
   return (
     <FarmsContext.Provider value={{ chosenFarmsMemoized }}>
       <PageHeader>
@@ -442,7 +447,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </FinishedTextContainer>
         )}
         {viewMode === ViewMode.TABLE ? (
-          <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
+          <Table farms={chosenFarmsMemoized} onePiecePrice={onePiecePrice} userDataReady={userDataReady} />
         ) : (
           <FlexLayout>{children}</FlexLayout>
         )}

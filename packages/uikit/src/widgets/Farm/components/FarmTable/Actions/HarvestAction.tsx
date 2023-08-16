@@ -69,7 +69,7 @@ const HarvestAction: React.FunctionComponent<React.PropsWithChildren<HarvestActi
             <Heading>{displayBalance}</Heading>
           )}
           {earningsBusd > 0 && (
-            <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
+            <Balance fontSize="12px" color="textSubtle" decimals={5} value={earningsBusd} unit=" USD" prefix="~" />
           )}
         </div>
         <Button ml="4px" disabled={earnings.eq(0) || pendingTx || !userDataReady} onClick={handleHarvest}>

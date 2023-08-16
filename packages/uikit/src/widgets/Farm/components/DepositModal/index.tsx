@@ -89,7 +89,7 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
   const interestBreakdown = getInterestBreakdown({
     principalInUSD: !lpTokensToStake.isNaN() ? usdToStake.toNumber() : 0,
     apr,
-    earningTokenPrice: cakePrice.toNumber(),
+    earningTokenPrice: cakePrice?.toNumber(),
   });
 
   const annualRoi = cakePrice.times(interestBreakdown[3]);
@@ -125,7 +125,7 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
           stakingTokenBalance={stakedBalance.plus(max)}
           stakingTokenSymbol={tokenName}
           stakingTokenPrice={lpPrice.toNumber()}
-          earningTokenPrice={cakePrice.toNumber()}
+          earningTokenPrice={cakePrice?.toNumber()}
           apr={bCakeMultiplier ? apr * bCakeMultiplier : apr}
           multiplier={multiplier}
           displayApr={bCakeMultiplier ? (_toNumber(displayApr) - apr + apr * bCakeMultiplier).toFixed(2) : displayApr}

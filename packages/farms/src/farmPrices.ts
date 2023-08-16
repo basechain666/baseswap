@@ -16,7 +16,7 @@ export const getFarmBaseTokenPrice = (
   quoteTokenInBusd,
 ): FixedNumber => {
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
-
+  console.log("getFarmBaseTokenPrice:", stable, farm.quoteToken.symbol)
   if (farm.quoteToken.symbol === stable) {
     return hasTokenPriceVsQuote ? FixedNumber.from(farm.tokenPriceVsQuote) : FIXED_ONE
   }
@@ -156,12 +156,16 @@ export const getFarmsPrices = (
     stable: string
   },
 ): FarmWithPrices[] => {
+  
   const nativeStableFarm = farms.find((farm) => equalsIgnoreCase(farm.lpAddress, nativeStableLp.address))
+  console.log("farms/src/getFarmsPrices:",nativeStableFarm)
 
   const nativePriceUSD =
-    nativeStableFarm && _toNumber(nativeStableFarm?.tokenPriceVsQuote) !== 0
-      ? FIXED_ONE.divUnsafe(FixedNumber.from(nativeStableFarm.tokenPriceVsQuote))
+    farms[0] && _toNumber(farms[0]?.tokenPriceVsQuote) !== 0
+      ? FIXED_ONE.divUnsafe(FixedNumber.from(farms[0].tokenPriceVsQuote))
       : FIXED_ZERO
+
+  console.log("farms/src/nativePriceUSD:",nativePriceUSD.toString())
 
   const farmsWithPrices = farms.map((farm) => {
     const quoteTokenFarm = getFarmFromTokenAddress(farms, farm.quoteToken.address, [
@@ -207,6 +211,7 @@ export const getFarmsPrices = (
       lpTokenPrice: lpTokenPrice.toString(),
     }
   })
+  console.log("farms/src/farmsWithPrices:",farmsWithPrices)
 
   return farmsWithPrices
 }

@@ -21,7 +21,51 @@ import { useProvider } from 'wagmi'
 import { usePairContract } from './useContract'
 import { PairState, usePairs } from './usePairs'
 import { useActiveChainId } from './useActiveChainId'
+import { Interface } from '@ethersproject/abi'
+import IPancakePairABI from 'config/abi/IPancakePair.json'
+import { useMultipleContractSingleData } from 'state/multicall/hooks'
+import BigNumber from 'bignumber.js'
+import { formatUnits } from '@ethersproject/units'
 
+const PAIR_INTERFACE = new Interface(IPancakePairABI)
+
+export function getWETHPrice(): number {
+  const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
+  const pairAddresses = [wethUSDC]
+  const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
+  if (results[0].result?.length > 0) {
+    const {reserve0, reserve1} = results[0].result
+    var amount0 = parseFloat(formatUnits(reserve0, 18))
+    var amount1 = parseFloat(formatUnits(reserve1, 6))
+    const price = amount1 / amount0 
+    return price
+  }
+
+  return undefined
+  // if (busdPair.token0.name === "WETH") {
+  //   const reserve0 = parseFloat(busdPair.reserve0.toExact())
+  //   console.log("reserve0:", reserve0, busdPair.token0.name)
+
+  //   const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
+  //   console.log("reserve1:", reserve1, busdPair.token1.name)
+
+  //   const price = reserve0 / reserve1
+  //   console.log("price:", price)
+  //   const newPrice = new Price(currency, stable, reserve1 * busdPair.token1.decimals, reserve0 * busdPair.token0.decimals)
+  //   return newPrice
+  // }
+  // if (busdPair.token1.name === "WETH") {
+  //   const reserve0 = parseFloat(busdPair.reserve0.toExact())
+  //   console.log("reserve0:", reserve0, busdPair.token0.name)
+
+  //   const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
+  //   console.log("reserve1:", reserve1, busdPair.token1.name)
+
+  //   const price = reserve1 / reserve0
+  //   console.log("price:", price)
+  //   const newPrice = new Price(currency, stable, reserve0 * busdPair.token0.decimals, reserve1 * busdPair.token1.decimals)
+  //   return newPrice
+}
 /**
  * Returns the price in BUSD of the input currency
  * @param currency currency to compute the BUSD price of
@@ -141,7 +185,14 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
 
 export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
   const [tokenA, tokenB] = [currencyA?.wrapped, currencyB?.wrapped]
-  const pairAddress = getLpAddress(tokenA, tokenB)
+  let pairAddress = getLpAddress(tokenA, tokenB)
+  if (tokenA.symbol === "WETH" && tokenB.symbol === "ONEPIECE" || tokenA.symbol === "ONEPIECE" && tokenB.symbol === "WETH"){
+    pairAddress = "0x57798A9494AD216Da695C30F1D7120C4DE601F9a"
+  }
+  if (tokenA.symbol === "WETH" && tokenB.symbol === "USDC" || tokenA.symbol === "USDC" && tokenB.symbol === "WETH"){
+    pairAddress = "0x41d160033C222E6f3722EC97379867324567d883"
+  }
+  console.log("pairAddress:", pairAddress, tokenA.symbol, tokenB.symbol)
   const pairContract = usePairContract(pairAddress)
   const provider = useProvider({ chainId: currencyA.chainId })
 
@@ -156,10 +207,10 @@ export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
 
       const pair = new Pair(
-        CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
-        CurrencyAmount.fromRawAmount(token1, reserve1.toString()),
+        CurrencyAmount.fromRawAmount(token0, (reserve0.div(token0.decimals)).toString()),
+        CurrencyAmount.fromRawAmount(token1, (reserve1.div(token1.decimals)).toString()),
       )
-
+      
       return pair.priceOf(tokenB)
     },
     { dedupingInterval: FAST_INTERVAL, refreshInterval: FAST_INTERVAL },
@@ -196,8 +247,8 @@ export const useCakeBusdPrice = (
   const { chainId } = useActiveChainId()
   const isTestnet = !forceMainnet && isChainTestnet(chainId)
   // Return bsc testnet cake if chain is testnet
-  const cake: Token = isTestnet ? ONEPIECE[ChainId.BSC_TESTNET] : ONEPIECE[ChainId.BASE]
-  return usePriceByPairs(BUSD[cake.chainId], cake)
+  const onePiece: Token = isTestnet ? ONEPIECE[ChainId.BSC_TESTNET] : ONEPIECE[ChainId.BASE]
+  return usePriceByPairs(onePiece, WETH[onePiece.chainId])
 }
 
 // @Note: only fetch from one pair

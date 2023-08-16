@@ -68,7 +68,6 @@ export async function saveFarms(chainId: number, event: ScheduledEvent | FetchEv
   try {
     const isTestnet = farmFetcher.isTestnet(chainId)
     const farmsConfig =  (await import(`/${chainId}.ts`)).default as SerializedFarmConfig[]
-    console.log("saveFarms farmsConfig:", farmsConfig)
     let lpPriceHelpers: SerializedFarmConfig[] = []
     try {
       lpPriceHelpers = (await import(`/${chainId}.ts`)).default as SerializedFarmConfig[]
@@ -82,12 +81,11 @@ export async function saveFarms(chainId: number, event: ScheduledEvent | FetchEv
     const { farmsWithPrice, poolLength, regularCakePerBlock } = await farmFetcher.fetchFarms({
       chainId,
       isTestnet,
-      farms: farmsConfig.concat(lpPriceHelpers),
+      farms: farmsConfig.filter((f) => f.pid !== 0).concat(lpPriceHelpers),
     })
 
     const cakeBusdPrice = await getCakePrice(isTestnet)
     const lpAprs = await handleLpAprs(chainId, farmsConfig)
-
     const finalFarm = farmsWithPrice.map((f) => {
       return {
         ...f,

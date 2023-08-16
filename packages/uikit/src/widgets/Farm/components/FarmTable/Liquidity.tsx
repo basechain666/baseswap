@@ -29,8 +29,8 @@ const Container = styled.div`
 
 const Liquidity: React.FunctionComponent<React.PropsWithChildren<FarmTableLiquidityProps>> = ({ liquidity }) => {
   const displayLiquidity =
-    liquidity && liquidity.gt(0) ? (
-      `$${Number(liquidity).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+    liquidity ? (
+      `$${Number(liquidity).toLocaleString(undefined, { maximumFractionDigits: 5 })}`
     ) : (
       <Skeleton width={60} />
     );

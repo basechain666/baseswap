@@ -65,7 +65,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
     farm?.liquidity && originalLiquidity?.gt(0) ? farm.liquidity.plus(originalLiquidity) : farm.liquidity
 
   const totalValueFormatted =
-    liquidity && liquidity.gt(0)
+    liquidity 
       ? `$${liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 0 })}`
       : ''
 

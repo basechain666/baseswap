@@ -27,8 +27,6 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
       ]),
     [chainId, currencies],
   )
-  // console.log("currencies:", currencies, "tokens", tokens)
-
   const pairAddresses = useMemo(
     () =>
       tokens.map(([tokenA, tokenB]) => {

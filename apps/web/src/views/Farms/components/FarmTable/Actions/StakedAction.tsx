@@ -321,7 +321,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   const bCakeCalculatorSlot = (calculatorBalance) => (
     <BCakeCalculator
       targetInputBalance={calculatorBalance}
-      earningTokenPrice={cakePrice.toNumber()}
+      earningTokenPrice={cakePrice?.toNumber()}
       lpTotalSupply={lpTotalSupply}
       setBCakeMultiplier={setBCakeMultiplier}
     />
@@ -461,7 +461,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button width="100%" disabled onClick={handleApprove} variant="secondary">
+        <Button width="100%" disabled={pendingTx} onClick={handleApprove} variant="secondary">
           {t('Enable')}
         </Button>
       </ActionContent>

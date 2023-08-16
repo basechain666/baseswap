@@ -40,7 +40,6 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
     boosted,
     infoStableSwapAddress,
   } = farm
-
   const auctionHostingStartDate = !isUndefinedOrNull(auctionHostingStartSeconds)
     ? new Date(auctionHostingStartSeconds * 1000)
     : null
@@ -143,6 +142,7 @@ export const farmSelector = (chainId: number) =>
     (state: State) => state.farms,
     (farms) => {
       const deserializedFarmsData = farms.data.map(deserializeFarm).filter((farm) => farm.token.chainId === chainId)
+      
       const { loadArchivedFarmsData, userDataLoaded, poolLength, regularCakePerBlock } = farms
 
       return {

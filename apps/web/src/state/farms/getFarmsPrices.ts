@@ -95,10 +95,10 @@ const getFarmsPrices = (farms: SerializedFarm[], chainId: number) => {
   if (!nativeStableLpMap[chainId]) {
     throw new Error(`chainId ${chainId} not supported`)
   }
-
   const nativeStableFarm = farms.find(
     (farm) => farm.lpAddress.toLowerCase() === nativeStableLpMap[chainId].address.toLowerCase(),
   )
+  console.log("nativeStableFarm:",nativeStableFarm)
   const nativePriceUSD = nativeStableFarm.tokenPriceVsQuote ? BIG_ONE.div(nativeStableFarm.tokenPriceVsQuote) : BIG_ZERO
   const farmsWithPrices = farms.map((farm) => {
     const { wNative, stable } = nativeStableLpMap[chainId]
@@ -133,9 +133,9 @@ const nativeStableLpMap = {
     stable: 'tUSDC',
   },
   [ChainId.BASE]: {
-    address: '0x282e15FA390CB53B5ED92aBE89329f165307890e',
+    address: '0x41d160033C222E6f3722EC97379867324567d883',
     wNative: 'WETH',
-    stable: 'BUSD',
+    stable: 'USDC',
   },
   [ChainId.BSC_TESTNET]: {
     address: '0x4E96D2e92680Ca65D58A0e2eB5bd1c0f44cAB897',

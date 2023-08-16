@@ -57,7 +57,6 @@ export async function farmV2FetchFarms({
   totalSpecialAllocPoint,
 }: FetchFarmsParams) {
   const stableFarms = farms.filter(isStableFarm)
-
   const [stableFarmsResults, poolInfos, lpDataResults] = await Promise.all([
     fetchStableFarmData(stableFarms, chainId, multicallv2),
     fetchMasterChefData(farms, isTestnet, multicallv2, masterChefAddress),
@@ -81,18 +80,18 @@ export async function farmV2FetchFarms({
         ...farm,
         ...(stableFarmsDataMap[farm.pid]
           ? getStableFarmDynamicData({
-              ...lpData[index],
-              ...stableFarmsDataMap[farm.pid],
-              token0Decimals: farm.token.decimals,
-              token1Decimals: farm.quoteToken.decimals,
-              price1: stableFarmsDataMap[farm.pid].price1,
-            })
+            ...lpData[index],
+            ...stableFarmsDataMap[farm.pid],
+            token0Decimals: farm.token.decimals,
+            token1Decimals: farm.quoteToken.decimals,
+            price1: stableFarmsDataMap[farm.pid].price1,
+          })
           : getClassicFarmsDynamicData({
-              ...lpData[index],
-              ...stableFarmsDataMap[farm.pid],
-              token0Decimals: farm.token.decimals,
-              token1Decimals: farm.quoteToken.decimals,
-            })),
+            ...lpData[index],
+            ...stableFarmsDataMap[farm.pid],
+            token0Decimals: farm.token.decimals,
+            token1Decimals: farm.quoteToken.decimals,
+          })),
         ...getFarmAllocation({
           allocPoint: poolInfos[index]?.allocPoint,
           isRegular: poolInfos[index]?.isRegular,
@@ -167,10 +166,10 @@ const masterChefFarmCalls = (farm: SerializedFarmConfig, masterChefAddress: stri
 
   return pid || pid === 0
     ? {
-        address: masterChefAddress,
-        name: 'poolInfo',
-        params: [pid],
-      }
+      address: masterChefAddress,
+      name: 'poolInfo',
+      params: [pid],
+    }
     : null
 }
 
@@ -183,12 +182,12 @@ export const fetchMasterChefData = async (
   try {
     const masterChefCalls = farms.map((farm) => masterChefFarmCalls(farm, masterChefAddress))
     const masterChefAggregatedCalls = masterChefCalls.filter((masterChefCall) => masterChefCall !== null) as Call[]
-
     const masterChefMultiCallResult = await multicallv2({
       abi: masterChefV2Abi,
       calls: masterChefAggregatedCalls,
       chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BASE,
     })
+    console.log("masterChefMultiCallResult:", masterChefMultiCallResult)
 
     let masterChefChunkedResultCounter = 0
     return masterChefCalls.map((masterChefCall) => {
@@ -214,7 +213,7 @@ export const fetchMasterChefV2Data = async ({
   multicallv2: MultiCallV2
   masterChefAddress: string
 }) => {
-  console.log("masterChefAddress:",masterChefAddress)
+  console.log("masterChefAddress:", masterChefAddress)
   try {
     const [[poolLength], [totalRegularAllocPoint], [totalSpecialAllocPoint], [cakePerBlock]] = await multicallv2<
       [[BigNumber], [BigNumber], [BigNumber], [BigNumber]]
@@ -379,10 +378,12 @@ const getClassicFarmsDynamicData = ({
   // Raw amount of token in the LP, including those not staked
   const tokenAmountTotal = getTokenAmount(tokenBalanceLP, token0Decimals)
   const quoteTokenAmountTotal = getTokenAmount(quoteTokenBalanceLP, token1Decimals)
+  console.log("getClassicFarmsDynamicData lpTotalSupply:", lpTotalSupply.toString())
 
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
   const lpTokenRatio =
     !lpTotalSupply.isZero() && !lpTokenBalanceMC.isZero() ? lpTokenBalanceMC.divUnsafe(lpTotalSupply) : FIXED_ZERO
+  console.log("getClassicFarmsDynamicData lpTokenRatio:", lpTokenRatio.toString())
 
   // // Amount of quoteToken in the LP that are staked in the MC
   const quoteTokenAmountMcFixed = quoteTokenAmountTotal.mulUnsafe(lpTokenRatio)

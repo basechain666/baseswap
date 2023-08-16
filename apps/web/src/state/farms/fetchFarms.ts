@@ -3,8 +3,8 @@ import { SerializedFarmConfig } from 'config/constants/types'
 import { getFullDecimalMultiplier } from '@pancakeswap/utils/getFullDecimalMultiplier'
 import { BIG_TWO, BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { SerializedFarm } from '@pancakeswap/farms'
-// import { fetchMasterChefData } from './fetchMasterChefData'
-// import { fetchPublicFarmsData } from './fetchPublicFarmData'
+import { fetchMasterChefData } from './fetchMasterChefData'
+import { fetchPublicFarmsData } from './fetchPublicFarmData'
 
 function getLpInfo({
   tokenBalanceLP,
@@ -72,13 +72,12 @@ function farmLpTransformer(farmResult, masterChefResult) {
 }
 
 const fetchFarms = async (farmsToFetch: SerializedFarmConfig[], chainId: number): Promise<SerializedFarm[]> => {
-  // const [farmResult, masterChefResult] = await Promise.all([
-  //   fetchPublicFarmsData(farmsToFetch, chainId),
-  //   fetchMasterChefData(farmsToFetch, chainId),
-  // ])
+  const [farmResult, masterChefResult] = await Promise.all([
+    fetchPublicFarmsData(farmsToFetch, chainId),
+    fetchMasterChefData(farmsToFetch, chainId),
+  ])
 
-  // return farmsToFetch.map(farmLpTransformer(farmResult, masterChefResult))
-  return []
+  return farmsToFetch.map(farmLpTransformer(farmResult, masterChefResult))
 }
 
 export default fetchFarms

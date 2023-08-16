@@ -90,7 +90,6 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount)
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300)
   const { t } = useTranslation()
-
   const toggleActionPanel = () => {
     setActionPanelExpanded(!actionPanelExpanded)
   }

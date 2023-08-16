@@ -41,14 +41,15 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   async (pids) => {
     const farmsConfig = await getFarmConfig(ChainId.BASE)
     const poolLength = await fetchMasterChefFarmPoolLength()
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
-    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
+    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
+    const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
 
     // Add price helper farms
     const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(ChainId.BASE)
     const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
-
+    
     const farms = await fetchFarms(farmsWithPriceHelpers)
+    console.log("farmsV1/fetchFarmsPublicDataAsync:", farms)
     const farmsWithPrices = getFarmsPrices(farms)
 
     // Filter out price helper LP config farms

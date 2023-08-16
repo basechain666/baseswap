@@ -60,12 +60,12 @@ export const fetchFarmUserStakedBalances = async (
 ) => {
   const isBscNetwork = verifyBscNetwork(chainId)
   const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
-
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
       name: 'userInfo',
-      params: [farm.vaultPid ?? farm.pid, account],
+      // params: [farm.vaultPid ?? farm.pid, account],
+      params: [farm.pid, account],
     }
   })
 
@@ -75,6 +75,8 @@ export const fetchFarmUserStakedBalances = async (
     chainId,
     options: { requireSuccess: false },
   })
+  console.log("rawStakedBalances", farmsToFetch,rawStakedBalances, calls)
+
   const parsedStakedBalances = rawStakedBalances.map((stakedBalance) => {
     return new BigNumber(stakedBalance[0]._hex).toJSON()
   })

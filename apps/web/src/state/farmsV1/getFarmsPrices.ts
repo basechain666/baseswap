@@ -61,6 +61,7 @@ const getFarmQuoteTokenPrice = (
   quoteTokenFarm: SerializedFarm,
   BASEPriceUsdt: BigNumber,
 ): BigNumber => {
+
   if (farm.quoteToken.symbol === 'BUSD') {
     return BIG_ONE
   }
@@ -85,6 +86,7 @@ const getFarmQuoteTokenPrice = (
 }
 
 const getFarmsPrices = (farms: SerializedFarm[]) => {
+  console.log("farmsV1/getFarmsPrices")
   const bnbBusdFarm = farms.find((farm) => farm.v1pid === 252)
   const BASEPriceUsdt = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
 

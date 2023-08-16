@@ -56,11 +56,13 @@ const fetchFetchPublicDataOld = async ({ pids, chainId }): Promise<[SerializedFa
   const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(chainId)
 
   const farms = await fetchFarms(farmsCanFetch.concat(priceHelperLpsConfig), chainId)
+  console.log("fetchFetchPublicDataOld:", farms)
   const farmsWithPrices = farms.length > 0 ? getFarmsPrices(farms, chainId) : []
   return [farmsWithPrices, poolLengthAsBigNumber.toNumber(), regularCakePerBlock.toNumber()]
 }
 
 const fetchFarmPublicDataPkg = async ({ pids, chainId, chain }): Promise<[SerializedFarm[], number, number]> => {
+  console.log("fetchFarmPublicDataPkg:", pids, chainId ,chain)
   const farmsConfig = await getFarmConfig(chainId)
   const farmsCanFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
   const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(chainId)

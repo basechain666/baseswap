@@ -1,13 +1,14 @@
 import BigNumber from 'bignumber.js'
 import { ChainId } from '@pancakeswap/sdk'
 import { BLOCKS_PER_YEAR } from 'config'
+import lpAprs8453 from 'config/constants/lpAprs/8453.json'
 import lpAprs56 from 'config/constants/lpAprs/56.json'
 import lpAprs1 from 'config/constants/lpAprs/1.json'
 
 const getLpApr = (chainId: number) => {
   switch (chainId) {
     case ChainId.BASE:
-      return lpAprs56
+      return lpAprs8453
     case ChainId.ETHEREUM:
       return lpAprs1
     default:
@@ -46,14 +47,12 @@ export const getPoolApr = (
 export const getFarmApr = (
   chainId: number,
   poolWeight: BigNumber,
-  cakePriceUsd: BigNumber,
+  cakePriceUsd: number,
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
   regularCakePerBlock: number,
 ): { cakeRewardsApr: number; lpRewardsApr: number } => {
-  const yearlyCakeRewardAllocation = poolWeight
-    ? poolWeight.times(BLOCKS_PER_YEAR * regularCakePerBlock)
-    : new BigNumber(NaN)
+  const yearlyCakeRewardAllocation = poolWeight ? poolWeight.times(BLOCKS_PER_YEAR * regularCakePerBlock) : new BigNumber(NaN)
   const cakeRewardsApr = yearlyCakeRewardAllocation.times(cakePriceUsd).div(poolLiquidityUsd).times(100)
   let cakeRewardsAprAsNumber = null
   if (!cakeRewardsApr.isNaN() && cakeRewardsApr.isFinite()) {
