@@ -28,9 +28,9 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://onepieceswap.finance/',
 )
 
-export const USDC_BSC = new ERC20Token(
+export const USDC_BASE = new ERC20Token(
   ChainId.BASE,
-  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+  '0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca',
   18,
   'USDC',
   'Binance-Peg USD Coin',
@@ -147,7 +147,7 @@ export const ONEPIECE = {
 }
 
 export const USDC = {
-  [ChainId.BASE]: USDC_BSC,
+  [ChainId.BASE]: USDC_BASE,
   [ChainId.BSC_TESTNET]: USDC_TESTNET,
   [ChainId.ETHEREUM]: USDC_ETH,
   [ChainId.RINKEBY]: USDC_RINKEBY,

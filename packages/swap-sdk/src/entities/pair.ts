@@ -25,6 +25,7 @@ let PAIR_ADDRESS_CACHE: { [key: string]: string } = {}
 
 const composeKey = (token0: ERC20Token, token1: ERC20Token) => `${token0.chainId}-${token0.address}-${token1.address}`
 
+
 export const computePairAddress = ({
   factoryAddress,
   tokenA,

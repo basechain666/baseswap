@@ -11,7 +11,7 @@ import {
   ERC20Token,
 } from '@pancakeswap/sdk'
 import { FAST_INTERVAL } from 'config/constants'
-import { BUSD, ONEPIECE, USDC } from '@pancakeswap/tokens'
+import { BUSD, ONEPIECE, ONEPIECE_BASE, USDC, USDC_BASE, USDC_BSC } from '@pancakeswap/tokens'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 import getLpAddress from 'utils/getLpAddress'
@@ -21,6 +21,7 @@ import { useProvider } from 'wagmi'
 import { usePairContract } from './useContract'
 import { PairState, usePairs } from './usePairs'
 import { useActiveChainId } from './useActiveChainId'
+import { formatUnits } from '@ethersproject/units'
 
 /**
  * Returns the price in BUSD of the input currency
@@ -57,25 +58,19 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
       if (isBUSDPairExist) {
         if (busdPair.token0.name === "WETH") {
           const reserve0 = parseFloat(busdPair.reserve0.toExact())
-          console.log("reserve0:", reserve0, busdPair.token0.name)
 
           const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
-          console.log("reserve1:", reserve1, busdPair.token1.name)
 
           const price = reserve0 / reserve1
-          console.log("price:", price)
           const newPrice = new Price(currency, stable, reserve1 * busdPair.token1.decimals, reserve0 * busdPair.token0.decimals)
           return newPrice
         }
         if (busdPair.token1.name === "WETH") {
           const reserve0 = parseFloat(busdPair.reserve0.toExact())
-          console.log("reserve0:", reserve0, busdPair.token0.name)
 
           const reserve1 = parseFloat(busdPair.reserve1.toExact()) * 1e12
-          console.log("reserve1:", reserve1, busdPair.token1.name)
 
           const price = reserve1 / reserve0
-          console.log("price:", price)
           const newPrice = new Price(currency, stable, reserve0 * busdPair.token0.decimals, reserve1 * busdPair.token1.decimals)
           return newPrice
           // const price = busdPair.priceOf(wnative)
@@ -142,13 +137,16 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
 export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
   const [tokenA, tokenB] = [currencyA?.wrapped, currencyB?.wrapped]
   let pairAddress = getLpAddress(tokenA, tokenB)
-  if (tokenA.symbol === "WETH" && tokenB.symbol === "ONEPIECE" || tokenA.symbol === "ONEPIECE" && tokenB.symbol === "WETH"){
+  
+  if (tokenA.symbol === "WETH" && tokenB.symbol === "ONEPIECE" || tokenA.symbol === "ONEPIECE" && tokenB.symbol === "WETH") {
     pairAddress = "0x57798A9494AD216Da695C30F1D7120C4DE601F9a"
   }
 
-  console.log("pairAddress:", pairAddress, tokenA.symbol, tokenB.symbol)
   const pairContract = usePairContract(pairAddress)
   const provider = useProvider({ chainId: currencyA.chainId })
+
+  const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
+  const wethUSDCContract = usePairContract(wethUSDC)
 
   const { data: price } = useSWR(
     currencyA && currencyB && ['pair-price', currencyA, currencyB],
@@ -158,15 +156,31 @@ export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
         return null
       }
       const { reserve0, reserve1 } = reserves
-      console.log("reserve0:", reserve0)
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
 
       const pair = new Pair(
         CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
         CurrencyAmount.fromRawAmount(token1, reserve1.toString()),
       )
+      if (pairAddress !== "0x57798A9494AD216Da695C30F1D7120C4DE601F9a") {
+        return pair.priceOf(tokenB)
+      }
+      const onePiecePriceOfWETH = pair.priceOf(tokenB)
+      console.log("onePiecePriceOfWETH:", onePiecePriceOfWETH.toFixed(2))
+      const reservesWETH = await wethUSDCContract.connect(provider).getReserves()
+      if (!reservesWETH) {
+        return null
+      }
+      const { reserve0: reserveWETH0, reserve1: reserveWETH1 } = reservesWETH
 
-      return pair.priceOf(tokenB)
+      const amount0 = parseFloat(formatUnits(reserveWETH0, 18))
+      const amount1 = parseFloat(formatUnits(reserveWETH1, 6))
+      const wethPrice = amount1 / amount0
+      const fixedPrice = onePiecePriceOfWETH?.toFixed(2)
+
+      const onePiecePriceUSD = wethPrice / parseFloat(fixedPrice)
+      console.log("onePiecePriceNumber:", onePiecePriceUSD, "fixedPrice:", fixedPrice)
+      return new Price(ONEPIECE_BASE, WETH[ChainId.BASE], amount0, amount1)
     },
     { dedupingInterval: FAST_INTERVAL, refreshInterval: FAST_INTERVAL },
   )
