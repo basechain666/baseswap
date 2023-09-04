@@ -121,7 +121,7 @@ const getFarmsPrices = (farms: SerializedFarm[], chainId: number) => {
 
 export default getFarmsPrices
 
-const nativeStableLpMap = {
+export const nativeStableLpMap = {
   [ChainId.ETHEREUM]: {
     address: '0x2E8135bE71230c6B1B4045696d41C09Db0414226',
     wNative: 'WETH',

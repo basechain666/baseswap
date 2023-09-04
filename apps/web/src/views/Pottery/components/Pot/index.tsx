@@ -103,7 +103,7 @@ const Pot: React.FC<React.PropsWithChildren> = () => {
                 <CardHeader
                   title={t('Pottery')}
                   subTitle={t('Stake ONEPIECE, Earn ONEPIECE, Win ONEPIECE')}
-                  primarySrc="/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.svg"
+                  primarySrc="/images/tokens/0xBA78d493f42e63ABd27853FA1e7FD5060A351fA3.svg"
                   secondarySrc="/images/tokens/pot-icon.svg"
                 />
                 {activeTab === POT_CATEGORY.Deposit ? <Deposit /> : <Claim />}

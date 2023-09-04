@@ -42,6 +42,7 @@ import { Interface } from '@ethersproject/abi'
 import IPancakePairABI from 'config/abi/IPancakePair.json'
 import { useMultipleContractSingleData } from 'state/multicall/hooks'
 import { formatUnits } from '@ethersproject/units'
+import { nativeStableLpMap } from 'state/farms/getFarmsPrices'
 import Table from './components/FarmTable/FarmTable'
 import { FarmWithStakedValue } from './components/types'
 import { BCakeBoosterCard } from './components/BCakeBoosterCard'
@@ -164,7 +165,8 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { chainId } = useActiveChainId()
   const { data: farmsLP, userDataLoaded, poolLength, regularCakePerBlock } = useFarms()
   const onePiecePrice = usePriceByPairs(ONEPIECE_BASE, WETH[chainId])
-  const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
+  const wethUSDC = nativeStableLpMap[ChainId.BASE].address
+
   const pairAddresses = [wethUSDC]
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
   let onePiecePriceNumber 

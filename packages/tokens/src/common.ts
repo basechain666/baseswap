@@ -12,7 +12,7 @@ export const ONEPIECE_BASE = new ERC20Token(
 
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BASE,
-  '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+  '0xBA78d493f42e63ABd27853FA1e7FD5060A351fA3',
   18,
   'ONEPIECE',
   'OnePieceSwap Token',

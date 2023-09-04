@@ -11,17 +11,18 @@ import {
   ERC20Token,
 } from '@pancakeswap/sdk'
 import { FAST_INTERVAL } from 'config/constants'
-import { BUSD, ONEPIECE, ONEPIECE_BASE, USDC, USDC_BASE, USDC_BSC } from '@pancakeswap/tokens'
+import { BUSD, ONEPIECE, ONEPIECE_BASE, USDC, USDC_BASE, BUSD_BSC } from '@pancakeswap/tokens'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 import getLpAddress from 'utils/getLpAddress'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { isChainTestnet } from 'utils/wagmi'
 import { useProvider } from 'wagmi'
+import { formatUnits } from '@ethersproject/units'
+import { nativeStableLpMap } from 'state/farms/getFarmsPrices'
 import { usePairContract } from './useContract'
 import { PairState, usePairs } from './usePairs'
 import { useActiveChainId } from './useActiveChainId'
-import { formatUnits } from '@ethersproject/units'
 
 /**
  * Returns the price in BUSD of the input currency
@@ -136,16 +137,17 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
 
 export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
   const [tokenA, tokenB] = [currencyA?.wrapped, currencyB?.wrapped]
-  let pairAddress = getLpAddress(tokenA, tokenB)
-  
-  if (tokenA.symbol === "WETH" && tokenB.symbol === "ONEPIECE" || tokenA.symbol === "ONEPIECE" && tokenB.symbol === "WETH") {
-    pairAddress = "0x57798A9494AD216Da695C30F1D7120C4DE601F9a"
-  }
+  const pairAddress = getLpAddress(tokenA, tokenB)
+  console.log("usePriceByPairs:", tokenA.address, tokenB.address)
+  // if (tokenA.symbol === "WETH" && tokenB.symbol === "ONEPIECE" || tokenA.symbol === "ONEPIECE" && tokenB.symbol === "WETH") {
+  //   pairAddress = "0x57798A9494AD216Da695C30F1D7120C4DE601F9a"
+  // }
 
   const pairContract = usePairContract(pairAddress)
   const provider = useProvider({ chainId: currencyA.chainId })
 
-  const wethUSDC = "0x41d160033C222E6f3722EC97379867324567d883"
+  const wethUSDC = nativeStableLpMap[ChainId.BASE].address
+
   const wethUSDCContract = usePairContract(wethUSDC)
 
   const { data: price } = useSWR(
@@ -162,9 +164,9 @@ export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
         CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
         CurrencyAmount.fromRawAmount(token1, reserve1.toString()),
       )
-      if (pairAddress !== "0x57798A9494AD216Da695C30F1D7120C4DE601F9a") {
-        return pair.priceOf(tokenB)
-      }
+      // if (pairAddress !== "0x57798A9494AD216Da695C30F1D7120C4DE601F9a") {
+      //   return pair.priceOf(tokenB)
+      // }
       const onePiecePriceOfWETH = pair.priceOf(tokenB)
       console.log("onePiecePriceOfWETH:", onePiecePriceOfWETH.toFixed(2))
       const reservesWETH = await wethUSDCContract.connect(provider).getReserves()
